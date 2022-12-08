@@ -25,5 +25,11 @@ class MovieActorSeeder extends Seeder
             'movie_id' => 1,
             'character' => "Superman",
         ]);
+
+        MovieActor::create([
+            'actor_id' => 2,
+            'movie_id' => 2,
+            'character' => "Sherlock Holmes",
+        ]);
     }
 }

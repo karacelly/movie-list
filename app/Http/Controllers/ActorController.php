@@ -7,10 +7,15 @@ use Illuminate\Http\Request;
 
 class ActorController extends Controller
 {
-    public function actors_page(Request $request)
+    public function actorPage(Request $request)
     {
         $actors = Actor::all();
 
         return view('actors', compact('actors'));
+    }
+
+    public function actorDetailPage(Request $request, Actor $actor)
+    {
+        return view('actor', compact('actor'));
     }
 }

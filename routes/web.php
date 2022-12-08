@@ -39,7 +39,8 @@ Route::get('/profile', function () {
     return view('profile');
 });
 
-Route::get('/actors', [ActorController::class, 'actors_page']);
+Route::get('/actors', [ActorController::class, 'actorPage'])->name('actors');
+Route::get('/actor/{actor}', [ActorController::class, 'actorDetailPage'])->name('actor');
 
 //admin router
 
