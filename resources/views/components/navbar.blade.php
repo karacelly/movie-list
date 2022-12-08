@@ -21,12 +21,9 @@
                         Movies
                     </a>
                 </li>
-
-                @if (Auth::check() && Auth::user()->isAdmin())
-                    <li>
-                        <a href="/actors" class="text-white hover:underline">Actors</a>
-                    </li>
-                @endif
+                <li>
+                    <a href="/actors" class="text-white hover:underline">Actors</a>
+                </li>
 
                 @if (Auth::guest())
                     <a href="/register">

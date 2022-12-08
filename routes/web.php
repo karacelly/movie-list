@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActorController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,10 +39,10 @@ Route::get('/profile', function () {
     return view('profile');
 });
 
+Route::get('/actors', [ActorController::class, 'actors_page']);
 
 //admin router
 
 Route::group(['middleware' => 'roleCheck'], function () {
-    Route::get('/actors', [UserController::class, 'actors_page']);
     Route::get('/addMovie', [UserController::class, 'movie_page']);
 });

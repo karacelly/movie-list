@@ -73,11 +73,6 @@ class UserController extends Controller
         return back()->with('success', 'Profile updated!');
     }
 
-    public function actors_page(Request $request)
-    {
-        return view('actors');
-    }
-
     public function movie_page(Request $request)
     {
         return view('addMovie');

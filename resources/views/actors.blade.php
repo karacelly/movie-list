@@ -22,21 +22,24 @@
             @endif
         </div>
     </div>
-    <div class="content">
 
-        <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
-                <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="">
-            </a>
-            <div class="p-5">
-                <a href="#">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology
-                        acquisitions 2021</h5>
-                </a>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
-                    acquisitions of 2021 so far, in reverse chronological order.</p>
+    <div class="my-4 grid sm:grid-cols-1 md:grid-cols-5 lg:grid-cols-5 gap-x-4">
+        @foreach ($actors as $a)
+            <div>
+                <div class="rounded-lg bg-zinc-800 h-80">
+                    <div class="w-full h-56 overflow-hidden">
+                        <img class="object-cover rounded-t-lg w-full " src="{{ asset('/images/actors/' . $a->img_url) }}"
+                            alt="not found">
+                    </div>
+                    <div class="p-5">
+                        <h6 class="w-full mb-2 text-l font-bold tracking-tight text-gray-900 dark:text-white truncate">
+                            {{ $a->name }}
+                        </h6>
+                        <p class="w-full mb-3 font-normal text-gray-700 dark:text-gray-400 truncate">
+                            {{ $a->characters[0]->character }}</p>
+                    </div>
+                </div>
             </div>
-        </div>
-
+        @endforeach
     </div>
 @endsection
