@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('movie_id')->constrained();
             $table->string('status');
             $table->timestamp('created_at')->default(date("Y-m-d H:i:s"));
+            $table->timestamp('updated_at')->default(date("Y-m-d H:i:s"));
         });
     }
 

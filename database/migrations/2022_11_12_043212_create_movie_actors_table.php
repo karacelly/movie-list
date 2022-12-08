@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('character');
             $table->primary(['movie_id', 'actor_id']);
             $table->timestamp('created_at')->default(date("Y-m-d H:i:s"));
+            $table->timestamp('updated_at')->default(date("Y-m-d H:i:s"));
         });
     }
 

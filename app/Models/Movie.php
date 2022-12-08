@@ -19,6 +19,10 @@ class Movie extends Model
         'background_url',
     ];
 
+    protected $casts = [
+        'release_date' => 'datetime:d/m/Y',
+    ];
+
     public function actors() {
         return $this->hasMany(MovieActor::class, 'foreign_key');
     }

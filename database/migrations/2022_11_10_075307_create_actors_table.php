@@ -17,12 +17,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('gender');
-            $table->string('biography');
+            $table->text('biography');
             $table->date('dob');
             $table->string('birthplace');
             $table->string('img_url');
             $table->double('popularity', 3, 2);
             $table->timestamp('created_at')->default(date("Y-m-d H:i:s"));
+            $table->timestamp('updated_at')->default(date("Y-m-d H:i:s"));
         });
     }
 
