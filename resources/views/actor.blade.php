@@ -9,9 +9,24 @@
 @section('content')
     <div class="flex flex-row my-6 mx-4">
         <div class="left w-1/4 flex flex-col mx-2 mr-4">
-            <div class="img">
-                <img class="object-cover w-full rounded-lg" src="{{ asset('/images/actors/' . $actor->img_url) }}"
-                    alt="">
+            <div class="relative group">
+                <div class="img">
+                    <img class="object-cover w-full rounded-lg" src="{{ asset('/images/actors/' . $actor->img_url) }}"
+                        alt="">
+                </div>
+                @if (Auth::check() && Auth::user()->isAdmin())
+                    <div
+                        class="absolute z-10 w-full h-full bg-black top-0 left-0 rounded-lg opacity-70 hidden group-hover:block">
+                    </div>
+                    <div class="absolute z-20 text-white top-1 right-1 hidden group-hover:block">
+                        <div class="edit rounded-full bg-red-600 p-4">
+                            <i class="far fa-pen-to-square"></i>
+                        </div>
+                        <div class="remove rounded-full bg-red-600 p-4">
+                            <i class="far fa-trash-can"></i>
+                        </div>
+                    </div>
+                @endif
             </div>
             <div class="pt-5">
                 <h2 class="text-gray-900 dark:text-white text-xl">Personal Info</h2>
@@ -51,10 +66,10 @@
             <h3 class="text-xl my-3">Biography</h3>
             <p class="text-sm">{{ $actor->biography }}</p>
             <h3 class="text-xl my-3">Known For</h3>
-            <div class="my-2 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-x-4">
+            <div class="my-2 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-x-4">
                 @foreach ($actor->characters as $c)
                     <div>
-                        <div class="rounded-lg bg-zinc-800 h-72">
+                        <div class="rounded-lg bg-zinc-800 h-80">
                             <div class="w-full overflow-hidden">
                                 <img class="object-cover rounded-t-lg w-full"
                                     src="{{ asset('/images/movies/img/' . $c->movie->img_url) }}" alt="not found">
