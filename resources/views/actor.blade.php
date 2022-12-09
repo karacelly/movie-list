@@ -19,9 +19,11 @@
                         class="absolute z-10 w-full h-full bg-black top-0 left-0 rounded-lg opacity-70 hidden group-hover:block">
                     </div>
                     <div class="absolute z-20 text-white top-1 right-1 hidden group-hover:block">
-                        <div class="edit rounded-full bg-red-600 p-4">
-                            <i class="far fa-pen-to-square"></i>
-                        </div>
+                        <a href="{{ route('editActor', $actor) }}">
+                            <div class="edit rounded-full bg-red-600 p-4">
+                                <i class="far fa-pen-to-square"></i>
+                            </div>
+                        </a>
                         <div class="remove rounded-full bg-red-600 p-4">
                             <i class="far fa-trash-can"></i>
                         </div>

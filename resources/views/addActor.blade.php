@@ -2,7 +2,7 @@
 
 @section('scripts')
     <title>
-        Actor Detail Page
+        Add Actor Page
     </title>
 @endsection
 

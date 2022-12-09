@@ -46,7 +46,9 @@ Route::get('/actor/{actor}', [ActorController::class, 'actorDetailPage'])->name(
 
 Route::group(['middleware' => 'roleCheck'], function () {
     Route::get('/addMovie', [UserController::class, 'movie_page']);
-    Route::get('/addActor', [ActorController::class, 'addActorPage']);
+    Route::get('/addActor', [ActorController::class, 'addActorPage'])->name('addActor');
+    Route::get('/editActor/{actor}', [ActorController::class, 'editActorPage'])->name('editActor');
 
-    Route::post('register', [ActorController::class, 'addActor'])->name('addActor.action');
+    Route::post('/addActor', [ActorController::class, 'addActor'])->name('addActor.action');
+    Route::post('/editActor/{actor}', [ActorController::class, 'editActor'])->name('editActor.action');
 });
