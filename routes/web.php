@@ -32,6 +32,7 @@ Route::get('/register', function () {
 Route::post('register', [UserController::class, 'register_action'])->name('register.action');
 
 Route::post('/profile', [UserController::class, 'update_profile'])->name('update.profile');
+Route::post('/profile/updateImage', [UserController::class, 'update_image'])->name('update.image');
 
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 

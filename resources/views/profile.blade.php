@@ -4,6 +4,7 @@
     <title>
         MovieList | Profile
     </title>
+    <script src="{{ asset('js/script.js') }}" defer></script>
 @endsection
 
 @section('content')
@@ -25,14 +26,15 @@
                     Profile
                 </h1>
 
-
-
-                @if (Auth::user()->image)
-                    <img src="{{ asset('storages/images/' . Auth::user()->image) }}" />
-                @else
-                    <x-icomoon-user class="w-[100px] text-white" />
-                @endif
-
+                <button id="openModal">
+                    @if (Auth::user()->image)
+                        <div class="img rounded-full w-24 h-24 overflow-hidden">
+                            <img class="w-full h-full object-cover rounded-full" src="{{ url(Auth::user()->image) }}" />
+                        </div>
+                    @else
+                        <x-icomoon-user class="w-[100px] text-white" />
+                    @endif
+                </button>
 
                 <div class="flex justify-center">
                     <h1 class="text-white text-2xl">
@@ -103,8 +105,35 @@
                     @endforeach
                 @endif
             </div>
-
         </div>
+    </div>
 
+    <div id="modal" class="invisible">
+        <div class="absolute left-0 right-0 top-0 bottom-0 bg-black opacity-50 overflow-hidden">
+        </div>
+        <div class="absolute sm:top-40 md:top-80 lg:top-1/3 left-0 right-0">
+            <div class="w-full flex justify-center items-center">
+                <div class="w-1/2 bg-primaryBlack rounded-sm opacity-100 text-white p-5">
+                    <div class="flex justify-between items-center pb-5">
+                        <h2 class="text-white text-xl  ">Update Image</h2>
+                        <button class="closeModal">X</button>
+                    </div>
+                    <form action="{{ route('update.image') }}" class="m-0" method="post">
+                        @csrf
+                        <input class="w-full p-2 rounded-md text-black" type="text" name="img_url"
+                            placeholder="Image Url">
+                        <p class="py-2">Please upload your image to other sources first and use the url</p>
+                        <div class="flex justify-end items-center pt-3">
+                            <div class="close">
+                                <button type="button" class="bg-gray-400 rounded-md p-2 closeModal">Close</button>
+                            </div>
+                            <div class="save">
+                                <button class="bg-red-600 rounded-md p-2 ml-2" type="submit">Save changes</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

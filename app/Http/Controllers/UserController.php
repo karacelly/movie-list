@@ -73,6 +73,22 @@ class UserController extends Controller
         return back()->with('success', 'Profile updated!');
     }
 
+    public function update_image(Request $request)
+    {
+        $request->validate([
+            'img_url' => 'required',
+        ]);
+        $user = User::find(Auth::id());
+
+        $user->image = $request->img_url;
+
+        $user->save();
+
+        $request->session()->regenerate();
+
+        return back()->with('success', 'Image updated!');
+    }
+
     public function movie_page(Request $request)
     {
         return view('addMovie');
