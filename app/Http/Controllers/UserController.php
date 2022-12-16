@@ -5,32 +5,22 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function postLogin(Request $request)
+    public function showRegisterPage(Request $request)
     {
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required'
-        ]);
-
-        $rememberToken = $request->has('remember_token') ? true : false;
-
-
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $rememberToken)) {
-            $request->session()->regenerate();
-            return redirect()->intended('/')->with('success', 'login complete');
-        }
-
-        return back()->withErrors([
-            'password' => 'Wrong email or password'
-        ]);
+        return view('register');
     }
 
-    public function register_action(Request $request)
+    public function showProfilePage(Request $request)
+    {
+        return view('profile');
+    }
+
+    public function register(Request $request)
     {
         $request->validate([
             'username' => 'required',
@@ -50,7 +40,7 @@ class UserController extends Controller
         return redirect()->intended('/login')->with('success', 'Registration complted.');
     }
 
-    public function update_profile(Request $request)
+    public function updateProfile(Request $request)
     {
         $request->validate([
             'username' => 'required',
@@ -73,7 +63,7 @@ class UserController extends Controller
         return back()->with('success', 'Profile updated!');
     }
 
-    public function update_image(Request $request)
+    public function updateImage(Request $request)
     {
         $request->validate([
             'img_url' => 'required',
@@ -87,18 +77,5 @@ class UserController extends Controller
         $request->session()->regenerate();
 
         return back()->with('success', 'Image updated!');
-    }
-
-    public function movie_page(Request $request)
-    {
-        return view('addMovie');
-    }
-
-    public function logout(Request $request)
-    {
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-        return redirect('/');
     }
 }

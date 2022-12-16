@@ -14,11 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('watchlists', function (Blueprint $table) {
-            $table->id();
+            $table->foreignId('user_id')->constrained();
             $table->foreignId('movie_id')->constrained();
             $table->string('status');
             $table->timestamp('created_at')->default(date("Y-m-d H:i:s"));
             $table->timestamp('updated_at')->default(date("Y-m-d H:i:s"));
+            $table->primary(['user_id', 'movie_id']);
         });
     }
 

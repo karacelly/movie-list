@@ -1,0 +1,25 @@
+@extends('Layout.app')
+
+@section('scripts')
+    <title>
+        My Watchlist
+    </title>
+@endsection
+
+@section('content')
+    <div class="container">
+        <h1 class="text-red-600 font-bold text-3xl my-4">
+            <i class="fas fa-bookmark"></i>
+            <span class="text-white">
+                My
+            </span>
+            Watchlist
+        </h1>
+        <div class="search-bar ">
+            <form class="w-full bg-zinc-500 flex justify-between my-8 p-2 rounded-md" action="">
+                <input class="bg-zinc-500 w-11/12" placeholder="Search your watchlist ..." type="text" name="query">
+                <button class="text-gray-300" type="submit"><i class="fas fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+    </div>
+@endsection

@@ -38,7 +38,7 @@
                     </a>
                 @endif
                 @if (Auth::check())
-                    <a href="/">
+                    <a href="/watchlist">
                         <button class="px-3 py-2 text-white hover:underline">
                             My Watchlist
                         </button>

@@ -10,6 +10,15 @@ class ActorController extends Controller {
         return view('actors', compact('actors'));
     }
 
+    public function search(Request $request)
+    {
+        $search = $request->query('q');
+
+        $actors = Actor::where('name', 'LIKE', '%'.$search.'%')->get();
+
+        return view('actors', compact('actors'));
+    }
+
     public function actorDetailPage(Request $request, Actor $actor) {
         return view('actor', compact('actor'));
     }

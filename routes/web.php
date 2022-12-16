@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\ActorController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MovieController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WatchlistController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,28 +22,24 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/login', [AuthController::class, 'showLoginPage'])->name('postLogin');
+Route::post('/postLogin', [AuthController::class, 'login'])->name('postLogin');
 
-Route::post('/postLogin', [UserController::class, 'postLogin'])->name('postLogin');
-
-Route::get('/register', function () {
-    return view('register');
-});
-
+Route::get('/register', [UserController::class, 'showRegisterPage'])->name('register');
 Route::post('register', [UserController::class, 'register_action'])->name('register.action');
 
-Route::post('/profile', [UserController::class, 'update_profile'])->name('update.profile');
-Route::post('/profile/updateImage', [UserController::class, 'update_image'])->name('update.image');
+Route::get('/movies', [MovieController::class, 'showMoviesPage'])->name('movies');
 
-Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+Route::get('/watchlist', [WatchlistController::class, 'showWatchlistPage'])->name('movies');
 
-Route::get('/profile', function () {
-    return view('profile');
-});
+Route::get('/profile', [UserController::class, 'showProfilePage'])->name('profile');
+Route::post('/profile', [UserController::class, 'updateProfile'])->name('update.profile');
+Route::post('/profile/updateImage', [UserController::class, 'updateImage'])->name('update.image');
+
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/actors', [ActorController::class, 'actorPage'])->name('actors');
+Route::get('/actors/search', [ActorController::class, 'search'])->name('searchActor');
 Route::get('/actor/{actor}', [ActorController::class, 'actorDetailPage'])->name('actor');
 
 //admin router

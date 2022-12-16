@@ -12,11 +12,15 @@
             <h1 class="text-3xl text-red-500 font-bold">Actors</h1>
         </div>
         <div class="actions flex flex-row max-w-sm w-full justify-between items-center">
-            <div class="searchbar w-full mr-2 ">
-                <input class="bg-gray-800 w-full px-4 py-2 rounded-lg" type="text" placeholder="Search Actor Address">
+            <div class="searchbar w-full">
+                <form action="{{ route('searchActor') }}" method="get" role="search">
+                    <input class="bg-gray-800 w-full px-4 py-2 rounded-lg text-white" name="q" type="text"
+                        placeholder="Search Actor Address">
+                    <input type="submit" hidden />
+                </form>
             </div>
             @if (Auth::check() && Auth::user()->isAdmin())
-                <div class="add-actor w-1/3">
+                <div class="add-actor w-1/3 ml-2">
                     <a class="bg-red-500 w-full text-white px-2 py-2 rounded-sm" href="/addActor">Add Actor</a>
                 </div>
             @endif
