@@ -14,13 +14,16 @@
         "@fortawesome/fontawesome-free": "^6.2.1",
         "autoprefixer": "^10.4.13",
         "axios": "^0.21",
+        "browser-sync": "^2.27.11",
+        "browser-sync-webpack-plugin": "^2.3.0",
         "husky": "^8.0.2",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.4.19",
         "resolve-url-loader": "^5.0.0",
-        "sass": "^1.56.2",
-        "sass-loader": "^12.1.0",
-        "tailwindcss": "^3.2.4"
+        "sass": "^1.57.1",
+        "sass-loader": "^12.6.0",
+        "tailwindcss": "^3.2.4",
+        "webpack-livereload-plugin": "^1.2.0"
     }
 }

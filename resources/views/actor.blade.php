@@ -74,7 +74,7 @@
                         <div class="rounded-lg bg-zinc-800 h-80">
                             <div class="w-full overflow-hidden">
                                 <img class="object-cover rounded-t-lg w-full"
-                                    src="{{ asset('/images/movies/img/' . $c->movie->img_url) }}" alt="not found">
+                                    src="{{ asset('/images/movies/image/' . $c->movie->img_url) }}" alt="not found">
                             </div>
                             <div class="p-5">
                                 <h6

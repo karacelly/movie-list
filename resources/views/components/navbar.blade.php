@@ -43,7 +43,7 @@
                             My Watchlist
                         </button>
                     </a>
-                    <div class="group inline-block relative">
+                    <div class="group inline-block relative z-50">
                         <button class=" text-gray-500 font-semibold py-2 px-4 rounded inline-flex items-center">
                             <x-icomoon-user class="w-7" />
                         </button>
