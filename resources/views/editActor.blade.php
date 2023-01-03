@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-    <div class="mx-4">
+    <div class="mx-4 px-8 py-5">
         <h1 class="text-white text-3xl font-bold py-5">Add Actor</h1>
 
         <form action="{{ route('editActor.action', $actor) }}" method="POST" enctype="multipart/form-data">

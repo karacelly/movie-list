@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-    <div class="flex flex-row my-6 mx-4">
+    <div class="flex flex-row my-6 mx-20">
         <div class="left w-1/4 flex flex-col mx-2 mr-4">
             <div class="relative group">
                 <div class="img">

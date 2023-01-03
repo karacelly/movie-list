@@ -35,7 +35,7 @@ class MovieSeeder extends Seeder
             'director' => 'Harry Bradbeer',
             'release_date' => date('2022-10-27'),
             'img_url' => 'enola_holmes2.jpg',
-            'background_url' => 'enola_holmes2.png',
+            'background_url' => 'enola_holmes2.jpg',
         ]);
 
         Movie::create([
@@ -46,7 +46,7 @@ class MovieSeeder extends Seeder
             'director' => 'Ruben Fleischer',
             'release_date' => date('2022-02-16'),
             'img_url' => 'uncharted.jpg',
-            'background_url' => 'uncharted.png',
+            'background_url' => 'uncharted.jpg',
         ]);
 
         Movie::create([
@@ -61,7 +61,7 @@ class MovieSeeder extends Seeder
             'director' => 'Jon Watts',
             'release_date' => date('2017-06-28'),
             'img_url' => 'spiderman_homecoming.jpg',
-            'background_url' => 'spiderman_homecoming.png',
+            'background_url' => 'spiderman_homecoming.jpg',
         ]);
 
         Movie::create([
@@ -76,7 +76,7 @@ class MovieSeeder extends Seeder
             'director' => 'Jon Watts',
             'release_date' => date('2021-12-13'),
             'img_url' => 'spiderman_nowayhome.jpg',
-            'background_url' => 'spiderman_nowayhome.png',
+            'background_url' => 'spiderman_nowayhome.jpg',
         ]);
     }
 }

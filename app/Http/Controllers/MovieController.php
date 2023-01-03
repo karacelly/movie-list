@@ -42,7 +42,8 @@ class MovieController extends Controller
 
     public function editMoviePage(Request $request, Movie $movie)
     {
-        return view('editMovie', compact('movie'));
+        $actors = Actor::all();
+        return view('editMovie', compact('actors', 'movie'));
     }
 
     public function addMovie(Request $request)

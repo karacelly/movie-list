@@ -14,7 +14,7 @@
 
         .overflow::before {
             content: '';
-            background-image: url('{{ asset('/images/movies/background/' . $movie->img_url) }}');
+            background-image: url('{{ asset('/images/movies/background/' . $movie->background_url) }}');
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
@@ -26,33 +26,33 @@
             left: 0px;
         }
     </style>
-    <div class="container w-full mx-auto p-5">
-
-        <div class="flex flex-col w-full">
-            <div class="flex flex-row w-full overflow">
-                <div class="flex max-w-lg p-5 relative group">
+    <div class="w-full">
+        <div class="flex flex-col w-full ">
+            <div class="flex flex-row w-full overflow py-5 px-24">
+                <div class="flex max-w-md p-5 relative group h-1/3">
                     <img class="object-cover w-full rounded-lg opacity-100"
                         src="{{ asset('/images/movies/image/' . $movie->img_url) }}" alt="{{ $movie->title }}" />
-                    @if (Auth::check() && Auth::user()->isAdmin())
-                        <div
-                            class="absolute z-10 w-full h-full bg-black top-0 left-0 rounded-lg opacity-70 hidden group-hover:block">
-                        </div>
-                        <div class="absolute z-20 text-white top-1 right-1 hidden group-hover:block">
-                            <a href="{{ route('editMovie', $movie) }}">
-                                <div class="edit rounded-full bg-red-600 p-4">
-                                    <i class="far fa-pen-to-square"></i>
-                                </div>
-                            </a>
-                            <div class="remove rounded-full bg-red-600 p-4">
-                                <i class="far fa-trash-can"></i>
-                            </div>
-                        </div>
-                    @endif
                 </div>
                 <div class="w-full flex flex-col relative justify-start p-5 space-y-5">
-                    <h1 class="text-white text-xl font-bold">
-                        {{ $movie->title }}
-                    </h1>
+                    <div class="flex text-white items-center justify-between">
+                        <div class="title w-4/5">
+                            <h1 class="text-5xl font-bold">{{ $movie->title }}
+                            </h1>
+                        </div>
+                        @if (Auth::check() && Auth::user()->isAdmin())
+                            <div class="action flex justify-between items-center text-xl w-1/12">
+                                <a href="{{ route('editMovie', $movie) }}">
+                                    <div class="edit">
+                                        <i class="far fa-pen-to-square"></i>
+                                    </div>
+                                </a>
+                                <div class="remove">
+                                    <i class="far fa-trash-can"></i>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+
                     <div
                         class="cursor-pointer w-[150px] rounded-full bg-transparent border border-white text-white text-center py-1 hover:-translate-y-1 transition duration-100 ease-in-out">
                         {{ $movie->genre }}

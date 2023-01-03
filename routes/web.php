@@ -64,6 +64,7 @@ Route::group(['middleware' => 'role:1'], function () {
     Route::get('/addMovie', [MovieController::class, 'addMoviePage']);
     Route::get('/addActor', [ActorController::class, 'addActorPage'])->name('addActor');
     Route::get('/editActor/{actor}', [ActorController::class, 'editActorPage'])->name('editActor');
+    Route::get('/editMovie/{movie}', [MovieController::class, 'editMoviePage'])->name('editMovie');
 
     //Post
     Route::post('/addMovie', [MovieController::class, 'addMovie'])->name('addMovie.action');
