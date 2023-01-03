@@ -53,9 +53,13 @@
                         @endif
                     </div>
 
-                    <div
-                        class="cursor-pointer w-[150px] rounded-full bg-transparent border border-white text-white text-center py-1 hover:-translate-y-1 transition duration-100 ease-in-out">
-                        {{ $movie->genre }}
+                    <div class="flex">
+                        @foreach ($movie->genres as $genre)
+                            <div
+                                class="cursor-pointer w-[150px] rounded-full bg-transparent border border-white text-white text-center py-1 hover:-translate-y-1 transition duration-100 ease-in-out">
+                                {{ $genre->genre->name }}
+                            </div>
+                        @endforeach
                     </div>
                     <div class="flex justify-start font-bold text-white">
                         Release Year

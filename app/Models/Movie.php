@@ -12,7 +12,6 @@ class Movie extends Model
     protected $fillable = [
         'title',
         'description',
-        'genre',
         'director',
         'release_date',
         'img_url',
@@ -22,6 +21,10 @@ class Movie extends Model
     protected $casts = [
         'release_date' => 'datetime:d/m/Y',
     ];
+
+    public function genres() {
+        return $this->hasMany(MovieGenre::class);
+    }
 
     public function actors() {
         return $this->hasMany(MovieActor::class);
