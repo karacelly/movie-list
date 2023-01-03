@@ -71,14 +71,14 @@
             <div class="my-2 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-x-4">
                 @foreach ($actor->characters as $c)
                     <div>
-                        <div class="rounded-lg bg-zinc-800 h-80">
+                        <div class="rounded-lg  h-80">
                             <div class="w-full overflow-hidden">
                                 <img class="object-cover rounded-t-lg w-full"
                                     src="{{ asset('/images/movies/image/' . $c->movie->img_url) }}" alt="not found">
                             </div>
-                            <div class="p-5">
+                            <div class="py-2 px-5 bg-zinc-800 items-center">
                                 <h6
-                                    class="w-full mb-2 text-l font-bold tracking-tight text-gray-900 dark:text-white truncate">
+                                    class="w-full mb-2 text-left items-center font-bold tracking-tight text-gray-900 dark:text-white truncate">
                                     {{ $c->movie->title }}
                                 </h6>
                             </div>

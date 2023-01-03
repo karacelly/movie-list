@@ -7,67 +7,88 @@ use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
-    public function moviesPage(Request $request) {
+    public function moviesPage(Request $request)
+    {
         $movies = Movie::all();
         return view('movies', compact('movies'));
     }
 
-    public function movieDetailPage(Request $request, Movie $movie) {
+    public function indexPage(Request $request)
+    {
+        $movies = Movie::all();
+        return view('index', compact('movies'));
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->query('q');
+
+        $movies = Movie::where('title', 'LIKE', '%'.$search.'%')->get();
+
+        return view('movies', compact('movies'));
+    }
+
+    public function movieDetailPage(Request $request, Movie $movie)
+    {
         return view('movieDetail', compact('movie'));
     }
 
-  public function addMoviePage(){
-    return view('addMovie');
-  }
+    public function addMoviePage()
+    {
+        return view('addMovie');
+    }
 
-  public function editMoviePage(Request $request, Movie $movie) {
-    return view('editMovie', compact('movie'));
-}
+    public function editMoviePage(Request $request, Movie $movie)
+    {
+        return view('editMovie', compact('movie'));
+    }
 
-  public function addMovie(Request $request) {
-    $request->validate([
-        'title'=> 'required|min:3',
-        'genre'=> 'required|not_in:null',
-        'description'=> 'required|min:10',
-        'release_date'=> 'required',
-        'director'=> 'required|min:3',
-        'img_url'=> 'required|mimes:jpeg,jpg,png,gif',
-        'background_url'=> 'required|mimes:jpeg,jpg,png,gif'
-    ]);
-    $file=$request->file('img_url');
-    $file2=$request->file('background_url');
-    $data=$request->only('title', 'genre', 'description', 'director','release_date');
-    $data['img_url']=$file->getClientOriginalName();
-    $data['background_url']=$file2->getClientOriginalName();
-
-
-    $flower = Movie::create($data);
-
-    $flower->save();
-
-    if($flower) {
-        $file->move(public_path('/images/movies/image'), $data['img_url']);
-        $file2->move(public_path('/images/movies/background'), $data['background_url']);
-        return redirect()->back()->with('success', 'Movie added!');
-    };
-
-    return back()->withInput();
-}
-    public function editMovie(Request $request, Movie $movie) {
+    public function addMovie(Request $request)
+    {
         $request->validate([
-            'title'=> 'required|min:3',
-            'genre'=> 'required|not_in:null',
-            'description'=> 'required|min:10',
-            'release_date'=> 'required',
-            'director'=> 'required|min:3',
-            'img_url'=> 'required|mimes:jpeg,jpg,png,gif',
-            'background_url'=> 'required|mimes:jpeg,jpg,png,gif'
+            'title' => 'required|min:3',
+            'genre' => 'required|not_in:null',
+            'description' => 'required|min:10',
+            'release_date' => 'required',
+            'director' => 'required|min:3',
+            'img_url' => 'required|mimes:jpeg,jpg,png,gif',
+            'background_url' => 'required|mimes:jpeg,jpg,png,gif'
         ]);
-        $file=$request->file('img_url');
-        $file2=$request->file('background_url');
-        $data=$request->only('title', 'genre', 'description', 'director','release_date');
-        $data['img_url']=$file->getClientOriginalName();
-        $data['background_url']=$file2->getClientOriginalName();
+        $file = $request->file('img_url');
+        $file2 = $request->file('background_url');
+        $data = $request->only('title', 'genre', 'description', 'director', 'release_date');
+        $data['img_url'] = $file->getClientOriginalName();
+        $data['background_url'] = $file2->getClientOriginalName();
+
+
+        $flower = Movie::create($data);
+
+        $flower->save();
+
+        if ($flower) {
+            $file->move(public_path('/images/movies/image'), $data['img_url']);
+            $file2->move(public_path('/images/movies/background'), $data['background_url']);
+            return redirect()->back()->with('success', 'Movie added!');
+        };
+
+        return back()->withInput();
+    }
+    public function editMovie(Request $request, Movie $movie)
+    {
+        $request->validate([
+            'title' => 'required|min:3',
+            'genre' => 'required|not_in:null',
+            'description' => 'required|min:10',
+            'release_date' => 'required',
+            'director' => 'required|min:3',
+            'img_url' => 'required|mimes:jpeg,jpg,png,gif',
+            'background_url' => 'required|mimes:jpeg,jpg,png,gif'
+        ]);
+        $file = $request->file('img_url');
+        $file2 = $request->file('background_url');
+        $data = $request->only('title', 'genre', 'description', 'director', 'release_date');
+        $data['img_url'] = $file->getClientOriginalName();
+        $data['background_url'] = $file2->getClientOriginalName();
 
         $movie->title = $data['title'];
         $movie->genre = $data['genre'];
@@ -79,10 +100,10 @@ class MovieController extends Controller
 
         $movie->save();
 
-        if($movie) {
+        if ($movie) {
             $file->move(public_path('/images/movies/image'), $data['img_url']);
             $file2->move(public_path('/images/movies/background'), $data['background_url']);
-                return redirect()->route('movie', $movie);
+            return redirect()->route('movie', $movie);
         };
 
         return back()->withInput();

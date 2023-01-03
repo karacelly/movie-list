@@ -19,15 +19,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [MovieController::class, 'indexPage'])->name('movies');
+
 
 Route::get('/login', [AuthController::class, 'showLoginPage'])->name('postLogin');
 Route::post('/postLogin', [AuthController::class, 'login'])->name('postLogin');
 
 Route::get('/register', [UserController::class, 'showRegisterPage'])->name('register');
-Route::post('register', [UserController::class, 'register_action'])->name('register.action');
+Route::post('register', [UserController::class, 'register'])->name('register.action');
 
 
 Route::get('/watchlist', [WatchlistController::class, 'showWatchlistPage'])->name('movies');
@@ -40,6 +39,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 //Movies
 Route::get('/movies', [MovieController::class, 'moviesPage'])->name('movies');
+Route::get('/movies/search', [MovieController::class, 'search'])->name('searchMovie');
 Route::get('/movies/{movie}', [MovieController::class, 'movieDetailPage'])->name('movie');
 
 

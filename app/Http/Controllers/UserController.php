@@ -37,7 +37,7 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect()->intended('/login')->with('success', 'Registration complted.');
+        return redirect()->intended('/login')->with('success', 'Registration complete.');
     }
 
     public function updateProfile(Request $request)

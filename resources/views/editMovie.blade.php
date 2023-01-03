@@ -53,6 +53,9 @@
                 <p>Background Url</p>
                 <input class="w-full bg-primaryBlack py-2 px-3 my-4 rounded-sm" name="background_url" type="file">
             </div>
+            @if (session('success'))
+                <p class="text-green-500 text-xl">{{ session('success') }}</p>
+            @endif
             @if ($errors->any())
                 @foreach ($errors->all() as $err)
                     <p class="text-red-600 text-sm">{{ $err }}</p>
