@@ -36,13 +36,16 @@
             <input class="w-full bg-primaryBlack py-2 px-3 my-4 rounded-sm" name="popularity" type="number"
                 step="0.1">
         </div>
+        @if (session('success'))
+            <p class="text-green-500 text-xl">{{ session('success') }}</p>
+        @endif
         @if ($errors->any())
             @foreach ($errors->all() as $err)
                 <p class="text-red-600 text-sm">{{ $err }}</p>
             @endforeach
         @endif
         <div class="mt-4">
-            <button type="submit" class="w-1/3 rounded-md bg-red-500 py-2 px-10 text-white">Create</button>
+            <button type="submit" class="w-full rounded-md bg-red-500 py-2 px-10 text-white">Create</button>
         </div>
     </form>
 </div>

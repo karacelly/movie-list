@@ -16,11 +16,9 @@
         </div>
         <hr class="mt-2 py-2 border-gray-800" />
         <div class="grid grid-cols-4 mx-auto gap-5 w-full">
-
-            <x-card.largeCard />
-            <x-card.largeCard />
-            <x-card.largeCard />
-            <x-card.largeCard />
+            @foreach ($movies as $movie)
+                <x-large-movie-card :id="$movie->id" :title="$movie->title" :imgUrl="$movie->img_url" :releaseDate="$movie->release_date" />
+            @endforeach
 
         </div>
 
@@ -33,9 +31,11 @@
             </div>
 
             <div class="s flex justify-end">
-                <input type="text" name="searchBar" id=""
-                    class="outline-none border-none rounded-lg w-[300px] text-white px-3 bg-primaryBlack py-3"
-                    placeholder="Search movie...">
+                <form action="{{ route('searchMovie') }}" method="GET" role="search" class="w-full items-center p-0 m-0">
+                    <input class="bg-gray-800 w-full px-4 py-2 items-center rounded-lg text-white" name="q"
+                        type="text" placeholder="Search Movie......">
+                    <input type="submit" hidden />
+                </form>
             </div>
 
         </div>
@@ -61,16 +61,10 @@
         @endif
 
 
-
-
-
         <div class="grid grid-cols-4 mt-5 gap-1">
-
-            <x-card.smallCard />
-            <x-card.smallCard />
-            <x-card.smallCard />
-            <x-card.smallCard />
-
+            @foreach ($movies as $movie)
+                <x-small-movie-card :id="$movie->id" :title="$movie->title" :imgUrl="$movie->img_url" :releaseDate="$movie->release_date" />
+            @endforeach
         </div>
 
     </div>

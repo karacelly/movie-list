@@ -12,8 +12,8 @@
             <h1 class="text-3xl text-red-500 font-bold">Actors</h1>
         </div>
         <div class="actions flex flex-row max-w-sm w-full justify-between items-center">
-            <div class="searchbar w-full">
-                <form action="{{ route('searchActor') }}" method="get" role="search">
+            <div class="searchbar w-full items-center ">
+                <form action="{{ route('searchActor') }}" method="get" role="search" class="p-0 m-0">
                     <input class="bg-gray-800 w-full px-4 py-2 rounded-lg text-white" name="q" type="text"
                         placeholder="Search Actor Address">
                     <input type="submit" hidden />
