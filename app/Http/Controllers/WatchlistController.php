@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Auth;
 class WatchlistController extends Controller
 {
     public function showWatchlistPage() {
-      $watchlist = Watchlist::where('user_id', '=', Auth::id())->paginate(4);
+      $watchlist = Watchlist::where('user_id', Auth::id())->paginate(4);
+    //   dd($watchlist[0]->movie);
 
       return view('watchlist', compact('watchlist'));
     }

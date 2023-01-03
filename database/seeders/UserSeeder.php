@@ -24,8 +24,7 @@ class UserSeeder extends Seeder
         User::create([
             'username' => 'kesya',
             'email' => 'kesya@mail.com',
-            'password' => '$2a$12$pvaHKbB5cHTsFNEMeH/3IuxENR/P9Mj4tfPaXFx2btBIJ154nA5yS
-            ',
+            'password' => '$2a$12$MN7ba.2z9cYXSucL8rPKSeqn.WPVbABGgWeJdNyg2fcA.vZk63kBK',
             'role' => 0,
         ]);
     }

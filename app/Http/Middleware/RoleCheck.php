@@ -15,14 +15,14 @@ class RoleCheck
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next, $role)
     {
-        if (Auth::check() && Auth::user()->role === 1) {
+        if (Auth::check() && Auth::user()->role == $role) {
             return $next($request);
         }
 
         $request->session()->regenerate();
 
-        return abort(403, 'You are not allowed to access this page!');
+        return abort(401, 'You are not allowed to access this page!');
     }
 }

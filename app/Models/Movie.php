@@ -26,4 +26,8 @@ class Movie extends Model
     public function actors() {
         return $this->hasMany(MovieActor::class);
     }
+
+    public function watchlist() {
+        return $this->hasMany(Watchlist::class, 'foreign_key');
+    }
 }

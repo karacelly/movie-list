@@ -21,5 +21,26 @@
                 <button class="text-gray-300" type="submit"><i class="fas fa-magnifying-glass"></i></button>
             </form>
         </div>
+
+        <table class="w-full text-white text-left border-separate border-spacing-y-4">
+            <tr>
+                <th>Poster</th>
+                <th>Title</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            @foreach ($watchlist as $w)
+                <tr class="bg-zinc-800 ">
+                    <td class="w-1/4">
+                        <img class="w-1/3" src="{{ asset('/images/movies/img/' . $w->movie->img_url) }}" alt="No poster">
+                    </td>
+                    <td>
+                        {{ $w->movie->title }}
+                    </td>
+                    <td>{{ $w->status }}</td>
+                    <td>...</td>
+                </tr>
+            @endforeach
+        </table>
     </div>
 @endsection

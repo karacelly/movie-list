@@ -30,21 +30,23 @@ Route::post('register', [UserController::class, 'register_action'])->name('regis
 
 Route::get('/movies', [MovieController::class, 'showMoviesPage'])->name('movies');
 
-Route::get('/watchlist', [WatchlistController::class, 'showWatchlistPage'])->name('movies');
-
-Route::get('/profile', [UserController::class, 'showProfilePage'])->name('profile');
-Route::post('/profile', [UserController::class, 'updateProfile'])->name('update.profile');
-Route::post('/profile/updateImage', [UserController::class, 'updateImage'])->name('update.image');
-
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/actors', [ActorController::class, 'actorPage'])->name('actors');
 Route::get('/actors/search', [ActorController::class, 'search'])->name('searchActor');
 Route::get('/actor/{actor}', [ActorController::class, 'actorDetailPage'])->name('actor');
 
-//admin router
+//user route
+Route::group(['middleware' => 'role:0'], function () {
+  Route::get('/profile', [UserController::class, 'showProfilePage'])->name('profile');
+  Route::post('/profile', [UserController::class, 'updateProfile'])->name('update.profile');
+  Route::post('/profile/updateImage', [UserController::class, 'updateImage'])->name('update.image');
 
-Route::group(['middleware' => 'roleCheck'], function () {
+  Route::get('/watchlist', [WatchlistController::class, 'showWatchlistPage'])->name('watchlist');
+});
+
+//admin router
+Route::group(['middleware' => 'role:1'], function () {
     Route::get('/addMovie', [UserController::class, 'movie_page']);
     Route::get('/addActor', [ActorController::class, 'addActorPage'])->name('addActor');
     Route::get('/editActor/{actor}', [ActorController::class, 'editActorPage'])->name('editActor');
@@ -52,3 +54,4 @@ Route::group(['middleware' => 'roleCheck'], function () {
     Route::post('/addActor', [ActorController::class, 'addActor'])->name('addActor.action');
     Route::post('/editActor/{actor}', [ActorController::class, 'editActor'])->name('editActor.action');
 });
+
