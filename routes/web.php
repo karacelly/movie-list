@@ -56,6 +56,7 @@ Route::group(['middleware' => 'role:0'], function () {
   Route::post('/profile/updateImage', [UserController::class, 'updateImage'])->name('update.image');
 
   Route::get('/watchlist', [WatchlistController::class, 'showWatchlistPage'])->name('watchlist');
+  Route::get('/watchlist/search', [WatchlistController::class, 'search'])->name('searchWatchlist');
 });
 
 //admin router

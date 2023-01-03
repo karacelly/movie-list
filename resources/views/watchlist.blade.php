@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-    <div class="container">
+    <div class="mx-8 px-12 py-5">
         <h1 class="text-red-600 font-bold text-3xl my-4">
             <i class="fas fa-bookmark"></i>
             <span class="text-white">
@@ -16,7 +16,8 @@
             Watchlist
         </h1>
         <div class="search-bar ">
-            <form class="w-full bg-zinc-500 flex justify-between my-8 p-2 rounded-md" action="">
+            <form class="w-full bg-zinc-500 flex justify-between my-8 p-2 rounded-md" action="{{ route('searchWatchlist') }}"
+                method="get">
                 <input class="bg-zinc-500 w-11/12" placeholder="Search your watchlist ..." type="text" name="query">
                 <button class="text-gray-300" type="submit"><i class="fas fa-magnifying-glass"></i></button>
             </form>
@@ -32,7 +33,7 @@
             @foreach ($watchlist as $w)
                 <tr class="bg-zinc-800 ">
                     <td class="w-1/4">
-                        <img class="w-1/3" src="{{ asset('/images/movies/img/' . $w->movie->img_url) }}" alt="No poster">
+                        <img class="w-1/3" src="{{ asset('/images/movies/image/' . $w->movie->img_url) }}" alt="No poster">
                     </td>
                     <td>
                         {{ $w->movie->title }}
@@ -42,5 +43,7 @@
                 </tr>
             @endforeach
         </table>
+        {{ $watchlist->links() }}
+
     </div>
 @endsection
