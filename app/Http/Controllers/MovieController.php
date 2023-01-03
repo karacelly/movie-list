@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Actor;
 use App\Models\Movie;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,8 @@ class MovieController extends Controller
 
     public function addMoviePage()
     {
-        return view('addMovie');
+        $actors = Actor::all();
+        return view('addMovie', compact('actors'));
     }
 
     public function editMoviePage(Request $request, Movie $movie)

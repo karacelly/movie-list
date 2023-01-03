@@ -60,10 +60,11 @@ Route::group(['middleware' => 'role:0'], function () {
 
 //admin router
 
-Route::group(['middleware' => 'roleCheck'], function () {
-    Route::get('/addMovie', [UserController::class, 'movie_page']);
+Route::group(['middleware' => 'role:1'], function () {
+    Route::get('/addMovie', [MovieController::class, 'addMoviePage']);
     Route::get('/addActor', [ActorController::class, 'addActorPage'])->name('addActor');
     Route::get('/editActor/{actor}', [ActorController::class, 'editActorPage'])->name('editActor');
+
     //Post
     Route::post('/addMovie', [MovieController::class, 'addMovie'])->name('addMovie.action');
     Route::post('/editMovie/{movie}', [MovieController::class, 'editMovie'])->name('editMovie.action');
