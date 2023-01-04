@@ -57,6 +57,8 @@ Route::group(['middleware' => 'role:0'], function () {
 
   Route::get('/watchlist', [WatchlistController::class, 'showWatchlistPage'])->name('watchlist');
   Route::get('/watchlist/search', [WatchlistController::class, 'search'])->name('searchWatchlist');
+  Route::get('/watchlist/sort', [WatchlistController::class, 'sort'])->name('sortWatchlist');
+  Route::post('/watchlist/update/{watchlist}', [WatchlistController::class, 'update'])->name('updateWatchlist');
 });
 
 //admin router

@@ -26,7 +26,7 @@
                     Profile
                 </h1>
 
-                <button id="openModal">
+                <button class="openModal">
                     @if (Auth::user()->image)
                         <div class="img rounded-full w-24 h-24 overflow-hidden">
                             <img class="w-full h-full object-cover rounded-full" src="{{ url(Auth::user()->image) }}" />

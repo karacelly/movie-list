@@ -12,7 +12,7 @@
             <div class="title w-full">
                 <h1 class="text-3xl text-red-500 font-bold">Movies</h1>
             </div>
-            <div class=" flex flex-row max-w-sm w-full items-center justify-center">
+            <div class="flex flex-row max-w-sm w-full items-center justify-center">
                 <form action="{{ route('searchMovie') }}" method="GET" role="search" class="w-full items-center p-0 m-0">
                     <input class="bg-gray-800 w-full px-4 py-2 items-center rounded-lg text-white" name="q"
                         type="text" placeholder="Search Movie......">
@@ -27,7 +27,7 @@
                 @endif
             </div>
         </div>
-        <div class="grid grid-cols-4 mx-auto gap-5 w-full">
+        <div class="grid grid-cols-5 mx-auto gap-5 w-full">
             @foreach ($movies as $movie)
                 <div class="flex justify-center flex-col mx-auto w-full container ">
                     <a href="{{ route('movie', $movie) }}">
