@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Actor;
+use App\Models\Genre;
 use App\Models\Movie;
+use App\Models\MovieGenre;
 use Illuminate\Http\Request;
 
 class MovieController extends Controller
@@ -17,7 +19,13 @@ class MovieController extends Controller
     public function indexPage(Request $request)
     {
         $movies = Movie::all();
-        return view('index', compact('movies'));
+        $genres = Genre::all();
+        return view('index', compact('movies','genres'));
+    }
+
+    public function genresPage(Request $request){
+        $movies = Genre::all();
+        return view('genres', compact('movies'));
     }
 
     public function search(Request $request)

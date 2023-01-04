@@ -30,6 +30,8 @@ Route::post('register', [UserController::class, 'register'])->name('register.act
 
 Route::get('/movies', [MovieController::class, 'showMoviesPage'])->name('movies');
 
+Route::get('/genre/{genre}', [MovieController::class, 'genresPage'])->name('genre');
+
 Route::get('/watchlist', [WatchlistController::class, 'showWatchlistPage'])->name('movies');
 
 Route::get('/profile', [UserController::class, 'showProfilePage'])->name('profile');

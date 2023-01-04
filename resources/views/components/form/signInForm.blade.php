@@ -20,13 +20,15 @@
                 class="flex justify-center w-full text-white px-5 py-3 rounded-xl bg-primaryBlack focus-within:ring-1 ring-red-600">
                 <label class="w-1/2">Email</label>
                 <input type="email" name="email" class="w-full outline-none border-none bg-transparent "
-                    placeholder="Enter your email" value="{{ old('email') }}" />
+                    placeholder="Enter your email"
+                    value="{{ Cookie::get('cookie_email') ? Cookie::get('cookie_email') : '' }}" />
             </div>
             <div
                 class="flex justify-center w-full text-white px-5 py-3 rounded-xl bg-primaryBlack focus-within:ring-1 ring-red-600">
                 <label class="w-1/2">Password</label>
                 <input type="password" name="password" class="w-full outline-none border-none bg-transparent"
-                    placeholder="Enter your password" />
+                    placeholder="Enter your password"
+                    value="{{ Cookie::get('cookie_pass') ? Cookie::get('cookie_pass') : '' }}" />
             </div>
             <div class="inline-flex space-x-2">
                 <input type="checkbox" name="remember_token" value="1" id="remember" />
