@@ -96,7 +96,8 @@
             var addButton = $('#addButton');
             var wrapper = $('#addActor');
             var html =
-                `<div class="left w-1/2 mr-2">
+                `<div class="flex flex-row justify-between">
+                <div class="left w-1/2 mr-2">
                     <p>Actor</p>
                     <select name="actor" class="w-full bg-primaryBlack py-2 px-3 my-4 rounded-sm">
                         <option value="null">-- Open this select menu --</option>
@@ -108,7 +109,9 @@
                 <div class="right w-1/2 ml-2">
                     <p>Character Name</p>
                     <input class="w-full bg-primaryBlack py-2 px-3 my-4 rounded-sm" type="text" name="char">
-                </div>`;
+                </div>
+                </div>`
+                ;
             var x = 1;
 
             $(addButton).click(function() {
