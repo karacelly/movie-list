@@ -4,11 +4,22 @@
     <title>
         MovieList
     </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
 @endsection
 
 @section('content')
     <div class="px-8 py-5">
+
         <div class="container w-full mx-auto min-h-[100px]:">
+            <x-home-carousel>
+                @foreach ($random as $key => $rand)
+                    <div class="carousel-item {{ $key == 0 ? 'active' : '' }} float-left w-full">
+                        <img src="{{ asset('/images/movies/image/' . $rand->img_url) }}" alt="{{ $rand->title }}"
+                            class="w-auto mx-auto  max-w-lg block object-cover object-center" />
+                    </div>
+                @endforeach
+            </x-home-carousel>
+
             <div class="flex justify-start items-center space-x-4">
                 <x-icomoon-fire class="w-5 text-white" />
                 <h1 class="text-white font-semibold text-2xl">
@@ -78,4 +89,8 @@
 
         </div>
     </div>
+@endsection
+
+@section('js-scripts')
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
 @endsection

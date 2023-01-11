@@ -23,6 +23,7 @@ class MovieController extends Controller
         $movies = Movie::all();
         $genres = Genre::all();
         $famous = Movie::withCount('watchlist')->orderBy('watchlist_count', 'desc')->take(5)->get();
+        $random = Movie::all()->random(3);
 
         if($request->has('g')) {
             $genre = $request->query('g');
@@ -46,7 +47,7 @@ class MovieController extends Controller
             $movies = $movies->get();
         }
 
-        return view('index', compact('movies', 'genres', 'famous'));
+        return view('index', compact('movies', 'genres', 'famous','random'));
     }
 
 
