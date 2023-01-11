@@ -119,6 +119,12 @@
                             More
                         </h1>
                     </div>
+                    <div class="grid grid-cols-5 mt-5 gap-3">
+                        @foreach ($more as $m)
+                            <x-small-movie-card :id="$m->id" :title="$m->title" :imgUrl="$m->img_url" :releaseDate="$m->release_date" />
+                        @endforeach
+                    </div>
+
                 </div>
             </div>
         </div>

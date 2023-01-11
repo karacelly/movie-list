@@ -4,9 +4,11 @@
     <nav class="w-full container mx-auto p-8 flex flex-row justify-between items-center">
 
         <div class="w-full">
-            <h1 class="text-3xl text-red-500 font-bold">
-                Movie<span class="text-white">List</span>
-            </h1>
+            <a href="/">
+                <h1 class="text-3xl text-red-500 font-bold">
+                    Movie<span class="text-white">List</span>
+                </h1>
+            </a>
         </div>
 
         <div class="w-full flex justify-end">
@@ -45,7 +47,7 @@
                     </a>
                 @endif
                 @if (Auth::check())
-                    <div class="group inline-block relative">
+                    <div class="group inline-block relative z-50">
                         <button class=" text-gray-500 font-semibold rounded inline-flex items-center">
                             @if (Auth::user()->image)
                                 <div class="img rounded-full w-12 h-12 overflow-hidden">

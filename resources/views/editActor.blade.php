@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="mx-4 px-8 py-5">
-        <h1 class="text-white text-3xl font-bold py-5">Add Actor</h1>
+        <h1 class="text-white text-3xl font-bold py-5">Edit Actor</h1>
 
         <form action="{{ route('editActor.action', $actor) }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -46,7 +46,8 @@
             </div>
             <div class="input text-zinc-300">
                 <p>Image Url</p>
-                <input class="w-full bg-primaryBlack py-2 px-3 my-4 rounded-sm" name="img_url" type="file">
+                <input class="w-full bg-primaryBlack py-2 px-3 my-4 rounded-sm" name="img_url" type="file"
+                    value="{{ $actor->img_url }}">
             </div>
             <div class="input text-zinc-300">
                 <p>Popularity</p>
@@ -62,9 +63,8 @@
                 @endforeach
             @endif
             <div class="mt-4">
-                <button type="submit" class="w-1/3 rounded-md bg-red-500 py-2 px-10 text-white">Edit</button>
+                <button type="submit" class="w-full rounded-md bg-red-500 py-2 px-10 text-white">Edit</button>
             </div>
         </form>
     </div>
-
 @endsection

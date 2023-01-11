@@ -82,7 +82,7 @@ class ActorController extends Controller {
 
         if($actor) {
             $file->move(public_path('/images/actors'), $data['img_url']);
-            return redirect()->route('actor', $actor);
+            return redirect()->route('actor', $actor)->with('success','Actor data edited.');
         };
 
         return back()->withInput();
