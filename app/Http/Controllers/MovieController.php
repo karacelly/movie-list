@@ -6,7 +6,9 @@ use App\Models\Actor;
 use App\Models\Genre;
 use App\Models\Movie;
 use App\Models\MovieGenre;
+use App\Models\Watchlist;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MovieController extends Controller
 {
@@ -46,6 +48,8 @@ class MovieController extends Controller
 
         return view('index', compact('movies', 'genres', 'famous'));
     }
+
+
 
     public function search(Request $request)
     {

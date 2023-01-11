@@ -14,6 +14,17 @@ class WatchlistController extends Controller
       return view('watchlist', compact('watchlists'));
     }
 
+    public function addMovieToWatchlist(Request $request){
+
+        $watchlist = new Watchlist;
+        $watchlist->movie_id = $request->get('movie_id');
+        $watchlist->user_id = Auth::id();
+        $watchlist->status = "Planning";
+        $watchlist->save();
+
+        return back()->withInput();
+    }
+
     public function update(Request $request, Watchlist $watchlist) {
       $status = $request->status;
 

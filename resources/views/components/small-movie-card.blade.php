@@ -17,7 +17,7 @@
                 {{ date('d-m-Y', strtotime($releaseDate)) }}
             </h2>
             @if (Auth::check() && Auth::user()->nonAdmin())
-                <a href="" class="text-gray-500 flex justify-end items-end ">
+                <a href="{{ route('addWatchlist.action', $id) }}" class="text-gray-500 flex justify-end items-end ">
                     <x-eos-add class="w-5 hover:scale-150 transition duration-75 ease-linear" />
                 </a>
             @endif
