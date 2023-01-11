@@ -47,11 +47,6 @@ class MovieController extends Controller
         return view('index', compact('movies', 'genres', 'famous'));
     }
 
-    public function genresPage(Request $request){
-        $movies = Genre::all();
-        return view('genres', compact('movies'));
-    }
-
     public function search(Request $request)
     {
         $search = $request->query('q');
