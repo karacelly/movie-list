@@ -4,9 +4,11 @@
     <nav class="w-full container mx-auto p-8 flex flex-row justify-between items-center">
 
         <div class="w-full">
-            <h1 class="text-3xl text-red-500 font-bold">
-                Movie<span class="text-white">List</span>
-            </h1>
+            <a href="/">
+                <h1 class="text-3xl text-red-500 font-bold">
+                    Movie<span class="text-white">List</span>
+                </h1>
+            </a>
         </div>
 
         <div class="w-full flex justify-end">

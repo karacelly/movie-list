@@ -63,7 +63,8 @@ class MovieController extends Controller
 
     public function movieDetailPage(Request $request, Movie $movie)
     {
-        return view('movieDetail', compact('movie'));
+        $more = Movie::all()->random(5);
+        return view('movieDetail', compact('movie','more'));
     }
 
     public function addMoviePage()
