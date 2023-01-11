@@ -5,16 +5,19 @@
 
     <div
         class="cursor-pointer rounded-full bg-primaryBlack text-white px-8 py-1 hover:-translate-y-1 transition duration-100 ease-in-out">
-        <a href="">Latest</a>
+        <a href="{{ request()->fullUrlWithQuery(['s' => 0]) }}
+            ">Latest</a>
     </div>
 
     <div
         class="cursor-pointer rounded-full bg-primaryBlack text-white px-8 py-1 hover:-translate-y-1 transition duration-100 ease-in-out">
-        <a href="">A-Z</a>
+        <a href="{{ request()->fullUrlWithQuery(['s' => 1]) }}
+            ">A-Z</a>
     </div>
 
     <div
         class="cursor-pointer rounded-full bg-primaryBlack text-white px-8 py-1 hover:-translate-y-1 transition duration-100 ease-in-out">
-        <a href="">Z-A</a>
+        <a href="{{ request()->fullUrlWithQuery(['s' => 2]) }}
+            ">Z-A</a>
     </div>
 </div>

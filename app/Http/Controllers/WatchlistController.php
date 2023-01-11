@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Watchlist;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

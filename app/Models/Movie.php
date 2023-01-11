@@ -31,6 +31,6 @@ class Movie extends Model
     }
 
     public function watchlist() {
-        return $this->hasMany(Watchlist::class, 'foreign_key');
+        return $this->hasMany(Watchlist::class, 'movie_id');
     }
 }

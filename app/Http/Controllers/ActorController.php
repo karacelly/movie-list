@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 class ActorController extends Controller {
     public function actorPage(Request $request) {
         $actors = Actor::all();
-
         return view('actors', compact('actors'));
     }
 

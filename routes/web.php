@@ -21,7 +21,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MovieController::class, 'indexPage'])->name('movies');
 
-
 Route::get('/login', [AuthController::class, 'showLoginPage'])->name('postLogin');
 Route::post('/postLogin', [AuthController::class, 'login'])->name('postLogin');
 

@@ -17,7 +17,7 @@
             </div>
             <hr class="mt-2 py-2 border-gray-800" />
             <div class="grid grid-cols-5 mx-auto gap-5 w-full">
-                @foreach ($movies as $movie)
+                @foreach ($famous as $movie)
                     <x-large-movie-card :id="$movie->id" :title="$movie->title" :imgUrl="$movie->img_url" :releaseDate="$movie->release_date" />
                 @endforeach
 
@@ -44,8 +44,16 @@
             <hr class="mt-2 py-2 border-gray-800" />
 
             <div class="w-full">
-
-                <x-categoryBar />
+                <div class="flex flex-row w-full mx-auto container justify-between overflow-scroll gap-2">
+                    @foreach ($genres as $genre)
+                        <div
+                            class="mb-4 cursor-pointer rounded-full bg-primaryBlack text-white px-14 py-1 hover:-translate-y-1 transition duration-100 ease-in-out">
+                            <a
+                                href="{{ request()->fullUrlWithQuery(['g' => $genre->id]) }}
+                                ">{{ $genre->name }}</a>
+                        </div>
+                    @endforeach
+                </div>
             </div>
 
             <div class="my-10 w-full">
@@ -63,7 +71,7 @@
             @endif
 
 
-            <div class="grid grid-cols-4 mt-5 gap-1">
+            <div class="grid grid-cols-5 mt-5 gap-3">
                 @foreach ($movies as $movie)
                     <x-small-movie-card :id="$movie->id" :title="$movie->title" :imgUrl="$movie->img_url" :releaseDate="$movie->release_date" />
                 @endforeach

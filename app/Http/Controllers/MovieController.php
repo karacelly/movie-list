@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Actor;
+use App\Models\Genre;
 use App\Models\Movie;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,32 @@ class MovieController extends Controller
     public function indexPage(Request $request)
     {
         $movies = Movie::all();
-        return view('index', compact('movies'));
+        $genres = Genre::all();
+        $famous = Movie::withCount('watchlist')->orderBy('watchlist_count', 'desc')->take(5)->get();
+
+        if($request->has('g')) {
+            $genre = $request->query('g');
+
+            $movies = Movie::whereHas('genres', function($query) use ($genre) {
+                $query->where('genre_id', '=', $genre);
+            });
+        }
+
+        if($request->has('s')) {
+            $sort = $request->query('s');
+            if($sort == 0) {
+                $movies->orderBy('release_date', 'DESC');
+            } else if($sort == 1) {
+                $movies->orderBy('title', 'ASC');
+            } else if($sort == 2) {
+                $movies->orderBy('title', 'DESC');
+            }
+        }
+        if($request->has('g') || $request->has('g')) {
+            $movies = $movies->get();
+        }
+
+        return view('index', compact('movies', 'genres', 'famous'));
     }
 
     public function search(Request $request)
