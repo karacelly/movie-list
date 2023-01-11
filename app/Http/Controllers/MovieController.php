@@ -91,11 +91,11 @@ class MovieController extends Controller
         $data['background_url'] = $file2->getClientOriginalName();
 
 
-        $flower = Movie::create($data);
+        $movie = Movie::create($data);
 
-        $flower->save();
+        $movie->save();
 
-        if ($flower) {
+        if ($movie) {
             $file->move(public_path('/images/movies/image'), $data['img_url']);
             $file2->move(public_path('/images/movies/background'), $data['background_url']);
             return redirect()->back()->with('success', 'Movie added!');
