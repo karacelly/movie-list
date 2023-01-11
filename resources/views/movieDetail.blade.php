@@ -89,7 +89,7 @@
                             Cast
                         </h1>
                     </div>
-                    <div class="my-6 grid sm:grid-cols-1 md:grid-cols-8 lg:grid-cols-8 gap-x-14">
+                    <div class="my-6 grid sm:grid-cols-1 md:grid-cols-6 lg:grid-cols-6 gap-x-14">
                         @foreach ($movie->actors as $a)
                             <div>
                                 <a href="{{ route('actor', $a->actor) }}">

@@ -16,13 +16,24 @@
             <h2 class="font-semibold text-gray-500">
                 {{ date('d-m-Y', strtotime($releaseDate)) }}
             </h2>
+
             @if (Auth::check() && Auth::user()->nonAdmin())
-                <form action="{{ route('addWatchlist.action', $id) }}" method="post">
-                    @csrf
-                    <button type="submit" class=" text-gray-500 flex justify-end items-end ">
-                        <x-eos-add class="w-5 hover:scale-150 transition duration-75 ease-linear" />
+                @if ($flag)
+                    {
+                    <form action="{{ route('addWatchlist.action', $id) }}" method="post">
+                        @csrf
+                        <button type="submit" class=" text-gray-500 flex justify-end items-end ">
+                            <x-eos-add class="w-5 hover:scale-150 transition duration-75 ease-linear" />
+                        </button>
+                    </form>
+                    }
+                @else
+                    {
+                    <button type="button" class="text-red-500">
+                        <x-eos-done class="w-5 hover:scale-150 transition duration-75 ease-linear" />
                     </button>
-                </form>
+                    }
+                @endif
             @endif
         </div>
     </div>

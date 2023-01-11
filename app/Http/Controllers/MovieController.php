@@ -9,6 +9,7 @@ use App\Models\MovieGenre;
 use App\Models\Watchlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class MovieController extends Controller
 {
@@ -46,10 +47,17 @@ class MovieController extends Controller
             $movies = $movies->get();
         }
 
-        return view('index', compact('movies', 'genres', 'famous'));
+        $flags = collect();
+        $idx = 0;
+        foreach($movies as $movie) {
+            $flag = $movie->watchlist()->where('user_id', Auth::id())->get()->isEmpty();
+            error_log($flag);
+            $flags->put($idx, $flag);
+            $idx++;
+        }
+
+        return view('index', compact('movies', 'genres', 'famous', 'flags'));
     }
-
-
 
     public function search(Request $request)
     {

@@ -16,7 +16,7 @@ class WatchlistController extends Controller
       return view('watchlist', compact('watchlists'));
     }
 
-    public function addMovieToWatchlist(Request $request, Movie $movie) {
+    public function insert(Request $request, Movie $movie) {
 
         Watchlist::firstOrCreate(['movie_id' => $movie->id, 'user_id' => $movie->id, 'user_id' => Auth::id(), 'status' => 'Planning']);
 
@@ -27,6 +27,12 @@ class WatchlistController extends Controller
         DB::table('watchlists')->where(['user_id' => Auth::id(), 'movie_id' => $movie->id])->update([
             'status' => $request->only('status')['status'],
         ]);
+
+        return back();
+    }
+
+    public function remove(Request $request, Movie $movie) {
+        DB::table('watchlists')->where(['user_id' => Auth::id(), 'movie_id' => $movie->id])->delete();
 
         return back();
     }
