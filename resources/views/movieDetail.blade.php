@@ -81,20 +81,44 @@
                     </div>
                 </div>
             </div>
-            <div class="p-5">
-                <div class="divide-x-4 divide-red-500">
-                    <h1></h1>
-                    <h1 class="text-white text-xl font-bold">
-                        Cast
-                    </h1>
+            <div class="mx-10 my-5">
+                <div class="p-5 ">
+                    <div class="divide-x-4 divide-red-500">
+                        <h1></h1>
+                        <h1 class="text-white text-xl font-bold">
+                            Cast
+                        </h1>
+                    </div>
+                    <div class="my-6 grid sm:grid-cols-1 md:grid-cols-8 lg:grid-cols-8 gap-x-14">
+                        @foreach ($movie->actors as $a)
+                            <div>
+                                <a href="{{ route('actor', $a->actor) }}">
+                                    <div class="rounded-lg bg-zinc-800 h-80">
+                                        <div class="w-full h-56 overflow-hidden">
+                                            <img class="object-cover rounded-t-lg w-full h-full"
+                                                src="{{ asset('/images/actors/' . $a->actor->img_url) }}" alt="not found">
+                                        </div>
+                                        <div class="p-5">
+                                            <h6
+                                                class="w-full mb-2 text-l font-bold tracking-tight text-gray-900 dark:text-white truncate">
+                                                {{ $a->actor->name }}
+                                            </h6>
+                                            <p class="w-full mb-3 font-normal text-gray-700 dark:text-gray-400 truncate">
+                                                {{ $a->character }}</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
-            </div>
-            <div class="p-5">
-                <div class="divide-x-4 divide-red-500">
-                    <h1></h1>
-                    <h1 class="text-white text-xl font-bold">
-                        More
-                    </h1>
+                <div class="p-5">
+                    <div class="divide-x-4 divide-red-500">
+                        <h1></h1>
+                        <h1 class="text-white text-xl font-bold">
+                            More
+                        </h1>
+                    </div>
                 </div>
             </div>
         </div>

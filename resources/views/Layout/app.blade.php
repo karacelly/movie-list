@@ -10,7 +10,7 @@
 
 <body class="bg-secondaryBlack min-h-screen w-full relative">
     <x-navbar />
-    <div class="min-h-screen w-full">
+    <div class="w-full">
         @yield('content')
     </div>
     <x-footer />

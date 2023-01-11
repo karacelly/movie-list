@@ -73,5 +73,37 @@ class MovieSeeder extends Seeder
             'img_url' => 'spiderman_nowayhome.jpg',
             'background_url' => 'spiderman_nowayhome.jpg',
         ]);
+
+        Movie::create([
+            'id' => 6,
+            'title' => 'Space Sweepers',
+            'description' => "After snatching a crashed space shuttle in the latest debris chase, Spaceship Victory's crew members find a 7-year-old girl inside. They realise that she's the humanlike robot wanted by UTS Space Guards, and decide to demand a ransom in exchange.",
+            'director' => 'Jo Sung-hee',
+            'release_date' => date('2021-2-5'),
+            'img_url' => 'space_sweepers.jpg',
+            'background_url' => 'space_sweepers.jpg',
+        ]);
+
+        Movie::create([
+            'id' => 7,
+            'title' => 'Cek Toko Sebelah 2',
+            'description' => "Cek Toko Sebelah 2 adalah film drama komedi Indonesia tahun 2022 yang ditulis dan disutradarai oleh Ernest Prakasa. Film ini merupakan sekuel dari film tahun 2016 Cek Toko Sebelah.",
+            'director' => 'Ernest Prakasa',
+            'release_date' => date('2022-12-22'),
+            'img_url' => '01ghwrkct1wcj1h2c4h0n17aqk.jpg',
+            'background_url' => '01ghwrkct1wcj1h2c4h0n17aqk.jpg',
+        ]);
+
+        Movie::create([
+            'id' => 8,
+            'title' => 'Cek Toko Sebelah',
+            'description' => "Cek Toko Sebelah (bahasa Inggris: Check the Store Next Door) adalah film komedi Indonesia produksi Starvision Plus yang dirilis pada 28 Desember 2016 dan disutradarai oleh Ernest Prakasa. Ide cerita film ini dibuat berdasarkan pada realitas etnis Tionghoa saat anak beranjak dewasa, kuliah yang tinggi, mirisnya ujung-ujungnya bekerja di toko orang tuanya sendiri. Film ini ditulis oleh Ernest Prakasa dan Jenny Jusuf dengan pengembangan cerita dari Meira Anastasia.[1]
+
+            Cek Toko Sebelah mendapatkan reaksi yang sangat positif dari penonton dan kritikus film, terutama untuk skenario film. Dalam Festival Film Indonesia 2017, film ini mendapatkan sembilan nominasi, termasuk Film Terbaik serta Sutradara Terbaik dan Aktor Terbaik untuk Ernest Prakasa, memenangkan satu untuk Skenario Asli Terbaik. Cek Toko Sebelah lebih berhasil pada ajang Festival Film Bandung 2017 di mana film ini memenangkan dua penghargaan (Film Terpuji dan Aktor Terpuji).",
+            'director' => 'Ernest Prakasa',
+            'release_date' => date('2016-12-28'),
+            'img_url' => 'Cek_Toko_Sebelah.jpg',
+            'background_url' => 'Cek_Toko_Sebelah.jpg',
+        ]);
     }
 }

@@ -25,6 +25,7 @@ class UserSeeder extends Seeder
             'username' => 'kesya',
             'email' => 'kesya@mail.com',
             'password' => '$2a$12$MN7ba.2z9cYXSucL8rPKSeqn.WPVbABGgWeJdNyg2fcA.vZk63kBK',
+            'image' => 'https://o-cdn-cas.sirclocdn.com/parenting/images/Karina_4.width-1000.jpg',
             'role' => 0,
         ]);
     }

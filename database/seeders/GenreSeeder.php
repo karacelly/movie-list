@@ -33,7 +33,7 @@ class GenreSeeder extends Seeder
             'name' => 'Fantasy'
         ]);
         Genre::create([
-            'name' => 'Hystory'
+            'name' => 'History'
         ]);
         Genre::create([
             'name' => 'Horror'
