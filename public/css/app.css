@@ -11099,6 +11099,14 @@ video {
   margin-left: -1px;
 }
 
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
 .block {
   display: block;
 }
@@ -11285,6 +11293,22 @@ video {
 
 .w-\[250px\] {
   width: 250px;
+}
+
+.w-1 {
+  width: 0.25rem;
+}
+
+.w-2\/3 {
+  width: 66.666667%;
+}
+
+.w-2\/5 {
+  width: 40%;
+}
+
+.w-3\/5 {
+  width: 60%;
 }
 
 .max-w-sm {

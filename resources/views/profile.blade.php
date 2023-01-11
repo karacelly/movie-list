@@ -16,9 +16,9 @@
         </div>
     </div>
 
-    <div class="container w-full mx-auto ">
-        <div class="w-full flex mx-auto">
-            <div class="max-w-md w-full flex justify-start flex-col items-center space-y-5">
+    <div class="container w-full mx-auto mb-10">
+        <div class="w-full flex mx-auto justify-center">
+            <div class="max-w-md w-2/5 flex justify-start flex-col items-center space-y-5">
                 <h1 class="text-red-600 font-bold text-3xl ">
                     <span class="text-white">
                         My
@@ -50,42 +50,42 @@
 
             </div>
 
-            <div class="w-full justify-center items-center">
+            <div class="w-3/5 justify-center items-center">
                 <form action="{{ route('update.profile') }}" method="POST"
                     class="flex justify-center items-center flex-col w-full space-y-7 text-xl font-semibold">
                     @csrf
-                    <x-form.inputWrapper>
+                    <div class="inputWrapper">
                         <label class="w-1/2">Username</label>
 
                         <input type="text" value="{{ Auth::user()->username }}" name="username"
                             class="w-full outline-none
                             border-none bg-transparent" />
-                    </x-form.inputWrapper>
-                    <x-form.inputWrapper
-                        class="flex justify-center w-full text-white px-5 py-3 rounded-sm bg-primaryBlack focus-within:ring-1 ring-red-600">
+                    </div>
+                    <div
+                        class="inputWrapper flex justify-center w-full text-white px-5 py-3 rounded-sm bg-primaryBlack focus-within:ring-1 ring-red-600">
                         <label class="w-1/2">Email</label>
 
                         <input type="email" value="{{ Auth::user()->email }}" name="email"
                             class="w-full outline-none
                             border-none bg-transparent" />
-                    </x-form.inputWrapper>
-                    <x-form.inputWrapper
-                        class="flex justify-center w-full text-white px-5 py-3 rounded-sm bg-primaryBlack focus-within:ring-1 ring-red-600">
+                    </div>
+                    <div
+                        class="inputWrapper flex justify-center w-full text-white px-5 py-3 rounded-sm bg-primaryBlack focus-within:ring-1 ring-red-600">
                         <label class="w-1/2">DOB</label>
 
                         <input type="date" name="dateOfBirth" value="{{ Auth::user()->dob }}"
                             class="w-full outline-none
                             border-none bg-transparent" />
-                    </x-form.inputWrapper>
-                    <x-form.inputWrapper
-                        class="flex justify-center w-full text-white px-5 py-3 rounded-sm bg-primaryBlack focus-within:ring-1 ring-red-600">
+                    </div>
+                    <div
+                        class="inputWrapper flex justify-center w-full text-white px-5 py-3 rounded-sm bg-primaryBlack focus-within:ring-1 ring-red-600">
                         <label class="w-1/2">Phone</label>
 
                         <input type="text" name="phone"
                             class="w-full outline-none
                             border-none bg-transparent"
                             value="{{ Auth::user()->phone }}" />
-                    </x-form.inputWrapper>
+                    </div>
 
                     <div
                         class="w-full
