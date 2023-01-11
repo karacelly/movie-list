@@ -27,7 +27,7 @@
                 @endif
             </div>
         </div>
-        <div class="grid grid-cols-5 mx-auto gap-5 w-full">
+        <div class="grid grid-cols-5 mx-auto gap-5 w-full sm:grid-cols-3">
             @foreach ($movies as $movie)
                 <div class="flex justify-center flex-col mx-auto w-full container ">
                     <a href="{{ route('movie', $movie) }}">

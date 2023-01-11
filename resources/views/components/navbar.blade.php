@@ -39,14 +39,14 @@
                 @endif
                 @if (Auth::check() && Auth::user()->nonAdmin())
                     <a href="/watchlist">
-                        <button class="px-3 py-2 text-white hover:underline">
+                        <button class="text-white hover:underline">
                             My Watchlist
                         </button>
                     </a>
                 @endif
                 @if (Auth::check())
                     <div class="group inline-block relative">
-                        <button class=" text-gray-500 font-semibold py-2 px-4 rounded inline-flex items-center">
+                        <button class=" text-gray-500 font-semibold rounded inline-flex items-center">
                             @if (Auth::user()->image)
                                 <div class="img rounded-full w-12 h-12 overflow-hidden">
                                     <img class="w-full h-full object-cover rounded-full"
