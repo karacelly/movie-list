@@ -76,7 +76,7 @@
                                             <h2 class="text-white text-xl  ">Change Status</h2>
                                             <button class="closeModal">X</button>
                                         </div>
-                                        <form action="{{ route('updateWatchlist', $watchlist) }}" method="POST">
+                                        <form action="{{ route('updateWatchlist', $watchlist->movie) }}" method="POST">
                                             @csrf
                                             <select class="w-full p-2 rounded-md text-black my-2" name="status"
                                                 id="update">

@@ -31,19 +31,12 @@ Route::get('/movies', [MovieController::class, 'showMoviesPage'])->name('movies'
 
 Route::get('/genre/{genre}', [MovieController::class, 'genresPage'])->name('genre');
 
-Route::get('/watchlist', [WatchlistController::class, 'showWatchlistPage'])->name('movies');
-
-Route::get('/profile', [UserController::class, 'showProfilePage'])->name('profile');
-Route::post('/profile', [UserController::class, 'updateProfile'])->name('update.profile');
-Route::post('/profile/updateImage', [UserController::class, 'updateImage'])->name('update.image');
-
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-
 //Movies
 Route::get('/movies', [MovieController::class, 'moviesPage'])->name('movies');
 Route::get('/movies/search', [MovieController::class, 'search'])->name('searchMovie');
 Route::get('/movies/{movie}', [MovieController::class, 'movieDetailPage'])->name('movie');
 
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 //Actors
 Route::get('/actors', [ActorController::class, 'actorPage'])->name('actors');
@@ -59,8 +52,8 @@ Route::group(['middleware' => 'role:0'], function () {
   Route::get('/watchlist', [WatchlistController::class, 'showWatchlistPage'])->name('watchlist');
   Route::get('/watchlist/search', [WatchlistController::class, 'search'])->name('searchWatchlist');
   Route::get('/watchlist/sort', [WatchlistController::class, 'sort'])->name('sortWatchlist');
-  Route::post('/watchlist/update/{watchlist}', [WatchlistController::class, 'update'])->name('updateWatchlist');
-  Route::post('/watchlist', [MovieController::class, 'addMovieToWatchlist'])->name('addWatchlist.action');
+  Route::post('/watchlist/update/{movie}', [WatchlistController::class, 'update'])->name('updateWatchlist');
+  Route::post('/watchlist/add/{movie}', [WatchlistController::class, 'addMovieToWatchlist'])->name('addWatchlist.action');
 });
 
 //admin router

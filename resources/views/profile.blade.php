@@ -17,9 +17,9 @@
     </div>
 
     <div class="container w-full mx-auto mb-10">
-        <div class="w-full flex mx-auto justify-center">
-            <div class="max-w-md w-2/5 flex justify-start flex-col items-center space-y-5">
-                <h1 class="text-red-600 font-bold text-3xl ">
+        <div class="w-full flex mx-auto justify-around">
+            <div class="flex justify-start flex-col items-center space-y-5">
+                <h1 class="text-red-600 font-bold text-3xl mt-5">
                     <span class="text-white">
                         My
                     </span>

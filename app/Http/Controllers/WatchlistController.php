@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Movie;
 use App\Models\Watchlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class WatchlistController extends Controller
 {
@@ -14,24 +16,19 @@ class WatchlistController extends Controller
       return view('watchlist', compact('watchlists'));
     }
 
-    public function addMovieToWatchlist(Request $request){
+    public function addMovieToWatchlist(Request $request, Movie $movie) {
 
-        $watchlist = new Watchlist;
-        $watchlist->movie_id = $request->get('movie_id');
-        $watchlist->user_id = Auth::id();
-        $watchlist->status = "Planning";
-        $watchlist->save();
+        Watchlist::firstOrCreate(['movie_id' => $movie->id, 'user_id' => $movie->id, 'user_id' => Auth::id(), 'status' => 'Planning']);
 
         return back()->withInput();
     }
 
-    public function update(Request $request, Watchlist $watchlist) {
-      $status = $request->status;
+    public function update(Request $request, Movie $movie) {
+        DB::table('watchlists')->where(['user_id' => Auth::id(), 'movie_id' => $movie->id])->update([
+            'status' => $request->only('status')['status'],
+        ]);
 
-      $watchlist->status = $status;
-      $watchlist->save();
-
-      return back();
+        return back();
     }
 
     public function search(Request $request)

@@ -17,9 +17,12 @@
                 {{ date('d-m-Y', strtotime($releaseDate)) }}
             </h2>
             @if (Auth::check() && Auth::user()->nonAdmin())
-                <a href="{{ route('addWatchlist.action', $id) }}" class="text-gray-500 flex justify-end items-end ">
-                    <x-eos-add class="w-5 hover:scale-150 transition duration-75 ease-linear" />
-                </a>
+                <form action="{{ route('addWatchlist.action', $id) }}" method="post">
+                    @csrf
+                    <button type="submit" class=" text-gray-500 flex justify-end items-end ">
+                        <x-eos-add class="w-5 hover:scale-150 transition duration-75 ease-linear" />
+                    </button>
+                </form>
             @endif
         </div>
     </div>
