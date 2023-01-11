@@ -49,5 +49,83 @@ class ActorSeeder extends Seeder
             'img_url' => 'Henry_Cavill.jpg',
             'popularity' => 3.5,
         ]);
+
+        Actor::create([
+            'id' => 3,
+            'name' => 'Song Joong-ki',
+            'gender' => 'Male',
+            'biography' => "Song Joong-ki (Korean: 송중기; born September 19, 1985) is a South Korean actor. He rose to fame in the historical coming-of-age drama Sungkyunkwan Scandal (2010) and the variety show Running Man (2010–2011) as one of the original cast members. Since then, he has played a diverse spectrum of roles in the television series The Innocent Man (2012), Descendants of the Sun (2016), Arthdal Chronicles (2019), Vincenzo (2021), and Reborn Rich (2022), as well as the hit films A Werewolf Boy (2012), The Battleship Island (2017), and Space Sweepers (2021).
+
+            Song was Gallup Korea's Television Actor of the Year in 2012[1] and in 2017. He was first included in the Forbes Korea Power Celebrity list in 2013 placing seventh, and subsequently ranking second in 2017, and seventh in 2018. The success of his TV series and film works internationally established him as a top Hallyu star in the Korean entertainment industry.",
+            'dob' => date("1985-9-19"),
+            'birthplace' => 'Dong District, Daejeon, South Korea',
+            'img_url' => 'Song_Joongki.jpg',
+            'popularity' => 4.3,
+        ]);
+
+        Actor::create([
+            'id' => 4,
+            'name' => 'Ernest Prakasa',
+            'gender' => 'Male',
+            'biography' => "Ernest Prakasa (born in Jakarta, Indonesia, January 29, 1982) is an Indonesian comedian, stand up performer, writer, and actor. He became popular after receiving third place in Stand Up Comedy Indonesia (SUCI) in 2011. He is known as a Chinese-Indonesian comedian who often uses his ethnic background as a standup comedy subject. Ernest obtained his degree from Padjadjaran University, majoring in International Relations.",
+            'dob' => date("1982-1-29"),
+            'birthplace' => 'Jakarta, Indonesia',
+            'img_url' => 'Ernest.jpg',
+            'popularity' => 3.8,
+        ]);
+
+        Actor::create([
+            'id' => 5,
+            'name' => 'Laura Basuki',
+            'gender' => 'Female',
+            'biography' => "Laura Basuki (lahir 9 Januari 1988) adalah seorang model dan pemeran berkebangsaan Indonesia keturunan Jawa, Tionghoa dan Vietnam. Ia memulai kariernya dengan menjadi seorang model. Laura melakukan debut aktingnya pada tahun 2008 melalui film Gara-Gara Bola yang mengantarkannya pada penghargaan Aktris Pendatang Baru Terbaik serta Terfavorit pada Indonesian Movie Awards 2009.
+
+            Laura meraih Silver Bear untuk Best Supporting Performance pada Festival Film Internasional Berlin 2022 atas penampilannya dalam film Nana. Ia merupakan salah satu aktris yang memenangkan Piala Citra kategori Pemeran Utama Wanita Terbaik bersamaan dengan pemeran utama pria dalam film yang sama – yakni bersama Reza Rahadian pada tahun 2010 untuk film 3 Hati Dua Dunia, Satu Cinta.[2] Laura memenangkan Piala Citra keduanya sepuluh tahun kemudian atas perannya sebagai Susi Susanti dalam Susi Susanti: Love All.",
+            'dob' => date("1988-1-9"),
+            'birthplace' => 'Berlin Barat, Jerman Barat',
+            'img_url' => 'Laura_Basuki.jpg',
+            'popularity' => 3.5,
+        ]);
+
+        Actor::create([
+            'id' => 6,
+            'name' => 'Dion Wiyoko',
+            'gender' => 'Male',
+            'biography' => "Dion Wiyoko (born in Surabaya, May 3, 1984) is an Indonesian actor of Chinese descent who started his career as a model.",
+            'dob' => date("1984-5-3"),
+            'birthplace' => 'Surabaya, East Java, Indonesia',
+            'img_url' => 'dion_wiyoko.jpg',
+            'popularity' => 4,
+        ]);
+
+        Actor::create([
+            'id' => 7,
+            'name' => 'Zendaya',
+            'gender' => 'Female',
+            'biography' => "Zendaya Maree Stoermer Coleman[2] (/zənˈdeɪ.ə/ zən-DAY-ə;[3] born September 1, 1996),[4][5] professionally known by the mononym Zendaya, is an American actress and singer. She has received various accolades, including a Golden Globe Award and two Primetime Emmy Awards. Time magazine named her one of the 100 most influential people in the world on its annual list in 2022.
+
+            Born and raised in Oakland, California, Zendaya began her career as a child model and backup dancer. She made her television debut as Rocky Blue on the Disney Channel sitcom Shake It Up (2010–2013) and starred as the titular character in the sitcom K.C. Undercover (2015–2018), for the channel. Her feature film debut came in 2017 with the superhero film Spider-Man: Homecoming, and she later starred in its sequels. Zendaya's role as Rue Bennett, a struggling drug addicted teenager, in the HBO teen drama series Euphoria (2019–present) made her the youngest recipient of two Primetime Emmy Awards for Outstanding Lead Actress in a Drama Series. Her film roles include the musical The Greatest Showman (2017), the romantic drama Malcolm & Marie (2021), and the science fiction epic Dune (2021).
+
+            In addition to her acting career, Zendaya has ventured into music. In 2011, she released the singles 'Swag It Out' and 'Watch Me', the latter a collaboration with Bella Thorne. She signed with Hollywood Records in 2012. Her eponymous debut studio album (2013) was released to moderate success. The album's lead single, 'Replay', reached the top 40 on the U.S. Billboard Hot 100 chart. Zendaya's biggest commercial success as a musician came with her Zac Efron collaboration, 'Rewrite the Stars', from The Greatest Showman soundtrack in 2017. The single reached within the top 20 of several record charts and has received multi-platinum sales certifications globally.",
+            'dob' => date("1996-9-1"),
+            'birthplace' => 'Oakland, California, U.S.',
+            'img_url' => 'zendaya.jpg',
+            'popularity' => 4,
+        ]);
+
+        Actor::create([
+            'id' => 8,
+            'name' => 'Tom Holland',
+            'gender' => 'Male',
+            'biography' => "Thomas Stanley Holland (born 1 June 1996) is an English actor. His accolades include a British Academy Film Award, three Saturn Awards, a Guinness World Record and an appearance on the Forbes 30 Under 30 Europe list. Some publications have called him one of the most popular actors of his generation.
+
+            Holland's career began at age nine when he enrolled in a dancing class, where a choreographer noticed him and arranged for him to audition for a role in Billy Elliot the Musical at London's Victoria Palace Theatre. After two years of training, he secured a supporting part in 2008 and was upgraded to the title role that year, which he played until 2010. Holland made his film debut in the disaster drama The Impossible (2012) as a teenage tourist trapped in a tsunami, for which he received a London Film Critics Circle Award for Young British Performer of the Year. After this, Holland decided to pursue acting as a full-time career, appearing in How I Live Now (2013) and playing historical figures in the film In the Heart of the Sea (2015) and the miniseries Wolf Hall (2015).
+
+            Holland achieved international recognition playing Spider-Man/Peter Parker in six Marvel Cinematic Universe (MCU) superhero films, beginning with Captain America: Civil War (2016). The following year, Holland received the BAFTA Rising Star Award and later became the youngest actor to play a title role in an MCU film in Spider-Man: Homecoming. The sequels Far From Home (2019) and No Way Home (2021) each grossed more than $1 billion worldwide, and the latter became the highest-grossing film of the year. During this period, Holland gained recognition for playing darker roles in the crime dramas The Devil All the Time (2020) and Cherry (2021). Holland has additionally directed the short film Tweet (2015) and voiced roles in computer-animated features, including Onward (2020).",
+            'dob' => date("1996-6-1"),
+            'birthplace' => 'London, England',
+            'img_url' => 'Tom_Holland.jpg',
+            'popularity' => 4.7,
+        ]);
     }
 }

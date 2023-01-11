@@ -10,8 +10,8 @@
     <div class="flex flex-row my-6 mx-20">
         <div class="left w-1/4 flex flex-col mx-2 mr-4">
             <div class="relative group">
-                <div class="img">
-                    <img class="object-cover w-full rounded-lg" src="{{ asset('/images/actors/' . $actor->img_url) }}"
+                <div class="h-60v overflow-hidden rounded-lg">
+                    <img class="w-full h-full object-cover" src="{{ asset('/images/actors/' . $actor->img_url) }}"
                         alt="">
                 </div>
                 @if (Auth::check() && Auth::user()->isAdmin())
