@@ -47,7 +47,7 @@
                     </a>
                 @endif
                 @if (Auth::check())
-                    <div class="group inline-block relative">
+                    <div class="group inline-block relative z-50">
                         <button class=" text-gray-500 font-semibold rounded inline-flex items-center">
                             @if (Auth::user()->image)
                                 <div class="img rounded-full w-12 h-12 overflow-hidden">

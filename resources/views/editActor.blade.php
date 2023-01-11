@@ -46,7 +46,8 @@
             </div>
             <div class="input text-zinc-300">
                 <p>Image Url</p>
-                <input class="w-full bg-primaryBlack py-2 px-3 my-4 rounded-sm" name="img_url" type="file">
+                <input class="w-full bg-primaryBlack py-2 px-3 my-4 rounded-sm" name="img_url" type="file"
+                    value="{{ $actor->img_url }}">
             </div>
             <div class="input text-zinc-300">
                 <p>Popularity</p>
@@ -66,5 +67,4 @@
             </div>
         </form>
     </div>
-
 @endsection

@@ -16,7 +16,7 @@ class WatchlistController extends Controller
       return view('watchlist', compact('watchlists'));
     }
 
-    public function addMovieToWatchlist(Request $request, Movie $movie) {
+    public function addMovieToWatchlist(Movie $movie) {
 
         Watchlist::firstOrCreate(['movie_id' => $movie->id, 'user_id' => $movie->id, 'user_id' => Auth::id(), 'status' => 'Planning']);
 

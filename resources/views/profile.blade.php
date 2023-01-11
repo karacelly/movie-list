@@ -96,9 +96,6 @@
                         </button>
                     </div>
                 </form>
-                @if (session('success'))
-                    <p class="text-green-500 text-xl">{{ session('success') }}</p>
-                @endif
                 @if ($errors->any())
                     @foreach ($errors->all() as $err)
                         <p class="text-red-500 text-xl">{{ $err }}</p>
@@ -136,4 +133,9 @@
             </div>
         </div>
     </div>
+    <script>
+        @if (Session::has('success'))
+            toastr.success("{{ Session::get('success') }}")
+        @endif
+    </script>
 @endsection

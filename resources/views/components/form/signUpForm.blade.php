@@ -11,7 +11,7 @@
     <div class="flex flex-col justify-center items-center max-w-lg mx-auto mt-10">
         @if ($errors->any())
             @foreach ($errors->all() as $err)
-                <p class="text-green-500 text-xl">{{ $err }}</p>
+                <p class="text-red-500 text-xl">{{ $err }}</p>
             @endforeach
         @endif
         <form action="{{ route('register.action') }}" method="POST" class="flex flex-col justify-center w-full space-y-5">
@@ -64,5 +64,12 @@
             </div>
         </form>
     </div>
-
 </div>
+
+<script>
+    @if (!empty($errors->all()))
+        @foreach ($errors->all() as $error)
+            toastr.error("{{ $error }}")
+        @endforeach
+    @endif
+</script>

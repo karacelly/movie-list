@@ -40,12 +40,10 @@ class AuthController extends Controller
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $rememberToken)) {
             $request->session()->regenerate();
-            return redirect()->intended('/')->with('success', 'login complete');
+            return redirect()->intended('/')->with('success', 'Login Success!');
         }
 
-        return back()->withErrors([
-            'password' => 'Wrong email or password'
-        ]);
+        return back()->with('error','Wrong email or password');
     }
 
     public function logout(Request $request)
@@ -53,6 +51,6 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/');
+        return redirect('/')->with('warning','You have logged out');
     }
 }

@@ -10,12 +10,12 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function showRegisterPage(Request $request)
+    public function showRegisterPage()
     {
         return view('register');
     }
 
-    public function showProfilePage(Request $request)
+    public function showProfilePage()
     {
         return view('profile');
     }
@@ -37,7 +37,7 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect()->intended('/login')->with('success', 'Registration complete.');
+        return redirect()->intended('/login')->with('success', 'Registration success');
     }
 
     public function updateProfile(Request $request)

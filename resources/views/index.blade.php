@@ -93,4 +93,9 @@
 
 @section('js-scripts')
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+    <script>
+        @if (Session::has('warning'))
+            toastr.success("{{ Session::get('warning') }}")
+        @endif
+    </script>
 @endsection

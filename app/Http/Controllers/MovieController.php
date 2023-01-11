@@ -36,11 +36,11 @@ class MovieController extends Controller
         if($request->has('s')) {
             $sort = $request->query('s');
             if($sort == 0) {
-                $movies->orderBy('release_date', 'DESC');
+                $movies = Movie::orderBy('release_date', 'DESC')->get();
             } else if($sort == 1) {
-                $movies->orderBy('title', 'ASC');
+                $movies= Movie::orderBy('title', 'ASC')->get();
             } else if($sort == 2) {
-                $movies->orderBy('title', 'DESC');
+                $movies= Movie::orderBy('title', 'DESC')->get();
             }
         }
         if($request->has('g') || $request->has('g')) {
@@ -104,7 +104,7 @@ class MovieController extends Controller
         if ($movie) {
             $file->move(public_path('/images/movies/image'), $data['img_url']);
             $file2->move(public_path('/images/movies/background'), $data['background_url']);
-            return redirect()->back()->with('success', 'Movie added!');
+            return redirect()->intended('/movies')->with('success', 'Succesfully added new movie');
         };
 
         return back()->withInput();
@@ -139,7 +139,7 @@ class MovieController extends Controller
         if ($movie) {
             $file->move(public_path('/images/movies/image'), $data['img_url']);
             $file2->move(public_path('/images/movies/background'), $data['background_url']);
-            return redirect()->route('movie', $movie);
+            return redirect()->route('movie', $movie)->with('success','Movie data edited.');
         };
 
         return back()->withInput();
