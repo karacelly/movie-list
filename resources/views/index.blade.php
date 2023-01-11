@@ -54,6 +54,13 @@
                         </div>
                     @endforeach
                 </div>
+                <div
+                    class="flex flex-row w-full mx-auto container justify-between relative space-x-2 snap-x scroll-smooth outer-wrapper">
+                    @foreach ($genres as $genre)
+                        <x-category-bar :id="$genre->id" :name="$genre->name" />
+                    @endforeach
+                </div>
+                <div class="tracker"></div>
             </div>
 
             <div class="my-10 w-full">

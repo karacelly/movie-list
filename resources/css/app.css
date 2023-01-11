@@ -40,3 +40,22 @@
         @apply px-3 py-2 border border-blue-600 rounded-sm text-blue-600 outline-none hover:-translate-y-2 transition duration-100 ease-linear;
     }
 }
+
+.outer-wrapper {
+    overflow-x: scroll;
+    position: relative;
+    scrollbar-color: rgba(220 38 38 0.3) !important;
+    scrollbar-width: thin;
+    -ms-overflow-style: none;
+    background-color: transparent;
+}
+
+.outer-wrapper::-webkit-scrollbar {
+    display: none;
+    background-color: transparent;
+}
+
+
+
+
+
