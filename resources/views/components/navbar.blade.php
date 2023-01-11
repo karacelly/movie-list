@@ -47,7 +47,15 @@
                 @if (Auth::check())
                     <div class="group inline-block relative">
                         <button class=" text-gray-500 font-semibold py-2 px-4 rounded inline-flex items-center">
-                            <x-icomoon-user class="w-7" />
+                            @if (Auth::user()->image)
+                                <div class="img rounded-full w-12 h-12 overflow-hidden">
+                                    <img class="w-full h-full object-cover rounded-full"
+                                        src="{{ url(Auth::user()->image) }}" />
+                                </div>
+                            @else
+                                <x-icomoon-user class="w-7" />
+                            @endif
+
                         </button>
                         <ul
                             class="absolute hidden text-gray-700 pt-1 group-hover:block bg-white rounded-md w-[150px] right-0

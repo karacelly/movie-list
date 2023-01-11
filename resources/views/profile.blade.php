@@ -108,7 +108,7 @@
         </div>
     </div>
 
-    <div id="modal" class="invisible">
+    <div class="modal invisible">
         <div class="absolute left-0 right-0 top-0 bottom-0 bg-black opacity-50 overflow-hidden">
         </div>
         <div class="absolute sm:top-40 md:top-80 lg:top-1/3 left-0 right-0">
