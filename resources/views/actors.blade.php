@@ -28,12 +28,12 @@
             </div>
         </div>
 
-        <div class="my-6 grid grid-cols-5 gap-x-14 sm:grid-cols-3">
+        <div class="my-6 grid sm:grid-cols-1 md:grid-cols-5 lg:grid-cols-5 gap-x-14">
             @foreach ($actors as $a)
                 <div>
                     <a href="{{ route('actor', $a) }}">
                         <div class="rounded-lg bg-zinc-800 h-80">
-                            <div class="w-full h-56 overflow-hidden sm:h-60">
+                            <div class="w-full h-56 overflow-hidden">
                                 <img class="object-cover rounded-t-lg w-full h-full"
                                     src="{{ asset('/images/actors/' . $a->img_url) }}" alt="not found">
                             </div>

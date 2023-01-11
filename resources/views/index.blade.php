@@ -16,7 +16,7 @@
                 </h1>
             </div>
             <hr class="mt-2 py-2 border-gray-800" />
-            <div class="grid grid-cols-5 mx-auto gap-5 w-full sm:grid-cols-3">
+            <div class="grid grid-cols-5 mx-auto gap-5 w-full">
                 @foreach ($famous as $movie)
                     <x-large-movie-card :id="$movie->id" :title="$movie->title" :imgUrl="$movie->img_url" :releaseDate="$movie->release_date" />
                 @endforeach
@@ -70,7 +70,7 @@
                 </div>
             @endif
 
-            <div class="grid grid-cols-5 mt-5 gap-3 sm:grid-cols-3 sm:justify-center">
+            <div class="grid grid-cols-5 mt-5 gap-3">
                 @foreach ($movies as $movie)
                     <x-small-movie-card :id="$movie->id" :title="$movie->title" :imgUrl="$movie->img_url" :releaseDate="$movie->release_date" />
                 @endforeach
