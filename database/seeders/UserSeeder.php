@@ -28,5 +28,11 @@ class UserSeeder extends Seeder
             'image' => 'https://o-cdn-cas.sirclocdn.com/parenting/images/Karina_4.width-1000.jpg',
             'role' => 0,
         ]);
+        User::create([
+            'username' => 'frisco',
+            'email' => 'frisco@mail.com',
+            'password' => '$2y$10$FKM0aM5SJZViF82ZwiD95ekKx/CJ58aBrwnQ6WMEW81QYevd4gtUG', // admin 123
+            'role' => 0,
+        ]);
     }
 }

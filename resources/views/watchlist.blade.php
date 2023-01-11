@@ -19,7 +19,8 @@
         <div class="search-bar ">
             <form class="w-full bg-zinc-500 flex justify-between my-8 p-2 rounded-md" action="{{ route('searchWatchlist') }}"
                 method="get">
-                <input class="bg-zinc-500 w-11/12" placeholder="Search your watchlist ..." type="text" name="query">
+                <input class="bg-zinc-500 w-11/12 text-white outline-none" placeholder="Search your watchlist ..."
+                    type="text" name="query">
                 <button class="text-gray-300" type="submit"><i class="fas fa-magnifying-glass"></i></button>
             </form>
         </div>
@@ -59,8 +60,11 @@
                         {{ $watchlist->movie->title }}
                     </td>
                     <td>{{ $watchlist->status }}</td>
-                    <td><button class="open">
-                            ...</button></td>
+                    <td>
+                        <button class="open">
+                            <x-eos-edit class="text-white w-5 text-center" />
+                        </button>
+                    </td>
                     <td>
                         <div class="modal invisible">
                             <div class="absolute left-0 right-0 top-0 bottom-0 bg-black opacity-50 overflow-hidden">
