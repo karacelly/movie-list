@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('watchlists', function (Blueprint $table) {
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('movie_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('movie_id')->constrained()->onDelete('cascade');
             $table->string('status');
             $table->timestamp('created_at')->default(date("Y-m-d H:i:s"));
             $table->timestamp('updated_at')->default(date("Y-m-d H:i:s"));

@@ -72,7 +72,17 @@ class MovieController extends Controller
     public function movieDetailPage(Request $request, Movie $movie)
     {
         $more = Movie::all()->random(5);
-        return view('movieDetail', compact('movie','more'));
+        $flags = collect();
+        $idx = 0;
+
+        foreach($more as $m) {
+            $flag = $m->watchlist()->where('user_id', Auth::id())->get()->isEmpty();
+            error_log($flag);
+            $flags->put($idx, $flag);
+            $idx++;
+        }
+
+        return view('movieDetail', compact('movie', 'more', 'flags'));
     }
 
     public function addMoviePage()
@@ -117,6 +127,7 @@ class MovieController extends Controller
 
         return back()->withInput();
     }
+
     public function editMovie(Request $request, Movie $movie)
     {
         $request->validate([
@@ -151,5 +162,11 @@ class MovieController extends Controller
         };
 
         return back()->withInput();
+    }
+
+    public function removeMovie(Request $request, Movie $movie) {
+        $movie->delete();
+
+        return redirect()->route('movies');
     }
 }

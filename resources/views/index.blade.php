@@ -137,4 +137,3 @@
             toastr.success("{{ Session::get('warning') }}")
         @endif
     </script>
-@endsection

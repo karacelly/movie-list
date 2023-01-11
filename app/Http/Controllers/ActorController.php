@@ -87,4 +87,10 @@ class ActorController extends Controller {
 
         return back()->withInput();
     }
+
+    public function removeActor(Request $request, Actor $actor) {
+        $actor->delete();
+
+        return redirect()->route('actors');
+    }
 }

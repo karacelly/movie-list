@@ -14,7 +14,7 @@ class CreateMovieGenresTable extends Migration
     public function up()
     {
         Schema::create('movie_genres', function (Blueprint $table) {
-            $table->foreignId('movie_id')->constrained();
+            $table->foreignId('movie_id')->constrained()->onDelete('cascade');
             $table->foreignId('genre_id')->constrained();
             $table->primary(['movie_id', 'genre_id']);
             $table->timestamp('created_at')->default(date("Y-m-d H:i:s"));

@@ -41,13 +41,18 @@
                         </div>
                         @if (Auth::check() && Auth::user()->isAdmin())
                             <div class="action flex justify-between items-center text-xl w-1/12">
-                                <a href="{{ route('editMovie', $movie) }}">
-                                    <div class="edit">
+                                <div class="edit">
+                                    <a href="{{ route('editMovie', $movie) }}">
                                         <i class="far fa-pen-to-square"></i>
-                                    </div>
-                                </a>
-                                <div class="remove">
-                                    <i class="far fa-trash-can"></i>
+                                    </a>
+                                </div>
+                                <div class="remove flex justify-center items-center">
+                                    <form action="{{ route('removeMovie.action', $movie) }}" method="POST" class="m-0">
+                                        @csrf
+                                        <button class="remove">
+                                            <i class="far fa-trash-can"></i>
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         @endif
@@ -120,8 +125,50 @@
                         </h1>
                     </div>
                     <div class="grid grid-cols-5 mt-5 gap-3">
-                        @foreach ($more as $m)
-                            <x-small-movie-card :id="$m->id" :title="$m->title" :imgUrl="$m->img_url" :releaseDate="$m->release_date" />
+                        @foreach ($more as $movie)
+                            <div
+                                class="flex justify-center flex-col  container w-[250px] cursor-pointer hover:-translate-y-2 transition duration-300 ease-linear">
+                                <div class="flex justify-center">
+                                    <a href="{{ route('movie', $movie) }}">
+                                        <img src="{{ asset('/images/movies/image/' . $movie->img_url) }}"
+                                            alt="{{ $movie->title }}"
+                                            class="w-full rounded-md h-[400px] object-center object-cover" />
+                                    </a>
+                                </div>
+                                <div class="flex justify-between items-start flex-col">
+                                    <div class="flex justify-start flex-col">
+                                        <h1 class="font-semibold text-white">
+                                            {{ $movie->title }}
+                                        </h1>
+                                    </div>
+                                    <div class="flex justify-between w-full">
+                                        <h2 class="font-semibold text-gray-500">
+                                            {{ date('d-m-Y', strtotime($movie->release_date)) }}
+                                        </h2>
+
+                                        @if (Auth::check() && Auth::user()->nonAdmin())
+                                            @if ($flags[$loop->index] == true)
+                                                <form action="{{ route('addWatchlist', $movie) }}" method="post">
+                                                    @csrf
+                                                    <button type="submit"
+                                                        class=" text-gray-500 flex justify-end items-end ">
+                                                        <x-eos-add
+                                                            class="w-5 hover:scale-150 transition duration-75 ease-linear" />
+                                                    </button>
+                                                </form>
+                                            @else
+                                                <form action="{{ route('removeWatchlist', $movie) }}" method="post">
+                                                    @csrf
+                                                    <button type="submit" class="text-red-500">
+                                                        <x-eos-done
+                                                            class="w-5 hover:scale-150 transition duration-75 ease-linear" />
+                                                    </button>
+                                                </form>
+                                            @endif
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
                         @endforeach
                     </div>
 

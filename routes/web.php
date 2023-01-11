@@ -34,7 +34,7 @@ Route::get('/genre/{genre}', [MovieController::class, 'genresPage'])->name('genr
 //Movies
 Route::get('/movies', [MovieController::class, 'moviesPage'])->name('movies');
 Route::get('/movies/search', [MovieController::class, 'search'])->name('searchMovie');
-Route::get('/movies/{movie}', [MovieController::class, 'movieDetailPage'])->name('movie');
+Route::get('/movie/{movie}', [MovieController::class, 'movieDetailPage'])->name('movie');
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
@@ -68,8 +68,11 @@ Route::group(['middleware' => 'role:1'], function () {
     //Post
     Route::post('/addMovie', [MovieController::class, 'addMovie'])->name('addMovie.action');
     Route::post('/editMovie/{movie}', [MovieController::class, 'editMovie'])->name('editMovie.action');
+    Route::post('/removeMovie/{movie}', [MovieController::class, 'removeMovie'])->name('removeMovie.action');
+
     Route::post('/addActor', [ActorController::class, 'addActor'])->name('addActor.action');
     Route::post('/editActor/{actor}', [ActorController::class, 'editActor'])->name('editActor.action');
+    Route::post('/removeActor/{actor}', [ActorController::class, 'removeActor'])->name('removeActor.action');
 
 });
 

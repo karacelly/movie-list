@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('movie_actors', function (Blueprint $table) {
-            $table->foreignId('actor_id')->constrained();
-            $table->foreignId('movie_id')->constrained();
+            $table->foreignId('actor_id')->constrained()->onDelete('cascade');
+            $table->foreignId('movie_id')->constrained()->onDelete('cascade');
             $table->string('character');
             $table->primary(['movie_id', 'actor_id']);
             $table->timestamp('created_at')->default(date("Y-m-d H:i:s"));

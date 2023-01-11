@@ -25,7 +25,12 @@
                             </div>
                         </a>
                         <div class="remove rounded-full bg-red-600 p-4">
-                            <i class="far fa-trash-can"></i>
+                            <form action="{{ route('removeActor.action', $actor) }}" method="POST" class="m-0">
+                                @csrf
+                                <button>
+                                    <i class="far fa-trash-can"></i>
+                                </button>
+                            </form>
                         </div>
                     </div>
                 @endif
