@@ -16,21 +16,13 @@
 @endsection
 
 @section('content')
-    <div id="carouselExampleCaptions" class="carousel slide relative" data-bs-ride="carousel">
-        <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
-        </div>
+    <x-home-carousel>
         <div class="carousel-inner relative w-full overflow-hidden h-80v">
             @foreach ($random as $key => $rand)
                 <div class="carousel-item {{ $key == 0 ? 'active' : '' }} relative float-left w-full">
                     <img src="{{ asset('/images/movies/background/' . $rand->background_url) }}" class="block w-full"
-                        alt="..." />
-                    <div class="carousel-caption md:block absolute top-[30vh] left-[15vw] w-1/3">
+                        alt="{{ $rand->title }}" />
+                    <div class="carousel-caption md:block absolute top-[35vh] left-[15vw] w-1/3">
                         <p>{{ $rand->genres[0]->genre->name }} | {{ date('Y', strtotime($rand->release_date)) }}</p>
                         <h1 class="text-5xl font-medium py-2">{{ $rand->title }}</h1>
                         <p class="text-ellipsis overflow-hidden text-ellipsis--3">{{ $rand->description }}</p>
@@ -38,19 +30,7 @@
                 </div>
             @endforeach
         </div>
-        <button
-            class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
-            type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-            class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
-            type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
+    </x-home-carousel>
     <div class="px-8 py-5">
         <div class="container w-full mx-auto min-h-[100px]:">
             <div class="flex justify-start items-center space-x-4">
