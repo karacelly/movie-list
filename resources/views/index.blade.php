@@ -22,10 +22,27 @@
                 <div class="carousel-item {{ $key == 0 ? 'active' : '' }} relative float-left w-full">
                     <img src="{{ asset('/images/movies/background/' . $rand->background_url) }}" class="block w-full"
                         alt="{{ $rand->title }}" />
-                    <div class="carousel-caption md:block absolute top-[35vh] left-[15vw] w-1/3">
+                    <div class="carousel-caption md:block absolute top-[25vh] left-[15vw] w-1/3">
                         <p>{{ $rand->genres[0]->genre->name }} | {{ date('Y', strtotime($rand->release_date)) }}</p>
                         <h1 class="text-5xl font-medium py-2">{{ $rand->title }}</h1>
                         <p class="text-ellipsis overflow-hidden text-ellipsis--3">{{ $rand->description }}</p>
+                        @if (Auth::check() && Auth::user()->nonAdmin())
+                            @if ($flags[$loop->index] == true)
+                                <form action="{{ route('addWatchlist', $rand) }}" method="post">
+                                    @csrf
+                                    <button type="submit"
+                                        class="rounded bg-red-500 text-white flex justify-end items-end px-4 py-2 my-2">
+                                        <x-eos-add class="w-5 hover:scale-150 transition duration-75 ease-linear" /> Add To
+                                        Watchlist
+                                    </button>
+                                </form>
+                            @else
+                                <button type="submit" class="text-red-500 bg-white rounded px-4 py-2 my-2 flex">
+                                    Added to watchlist
+                                    <x-eos-done class="w-5 transition duration-75 ease-linear" />
+                                </button>
+                            @endif
+                        @endif
                     </div>
                 </div>
             @endforeach
@@ -125,13 +142,9 @@
                                             </button>
                                         </form>
                                     @else
-                                        <form action="{{ route('removeWatchlist', $movie) }}" method="post">
-                                            @csrf
-                                            <button type="submit" class="text-red-500">
-                                                <x-eos-done
-                                                    class="w-5 hover:scale-150 transition duration-75 ease-linear" />
-                                            </button>
-                                        </form>
+                                        <button type="submit" class="text-red-500">
+                                            <x-eos-done class="w-5 hover:scale-150 transition duration-75 ease-linear" />
+                                        </button>
                                     @endif
                                 @endif
                             </div>

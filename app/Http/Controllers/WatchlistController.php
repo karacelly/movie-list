@@ -24,15 +24,13 @@ class WatchlistController extends Controller
     }
 
     public function update(Request $request, Movie $movie) {
-        DB::table('watchlists')->where(['user_id' => Auth::id(), 'movie_id' => $movie->id])->update([
-            'status' => $request->only('status')['status'],
-        ]);
-
-        return back();
-    }
-
-    public function remove(Request $request, Movie $movie) {
-        DB::table('watchlists')->where(['user_id' => Auth::id(), 'movie_id' => $movie->id])->delete();
+        if($request->only('status')['status'] == 'Remove') {
+            DB::table('watchlists')->where(['user_id' => Auth::id(), 'movie_id' => $movie->id])->delete();
+        } else {
+            DB::table('watchlists')->where(['user_id' => Auth::id(), 'movie_id' => $movie->id])->update([
+                'status' => $request->only('status')['status'],
+            ]);
+        }
 
         return back();
     }
