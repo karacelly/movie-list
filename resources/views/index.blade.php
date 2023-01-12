@@ -4,22 +4,55 @@
     <title>
         MovieList
     </title>
+    <style>
+        .text-ellipsis--3 {
+            display: -webkit-box !important;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            white-space: normal;
+        }
+    </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
 @endsection
 
 @section('content')
-    <div class="px-8 py-5">
-
-        <div class="container w-full mx-auto min-h-[100px]:">
-            <x-home-carousel>
-                @foreach ($random as $key => $rand)
-                    <div class="carousel-item {{ $key == 0 ? 'active' : '' }} float-left w-full">
-                        <img src="{{ asset('/images/movies/image/' . $rand->img_url) }}" alt="{{ $rand->title }}"
-                            class="w-auto mx-auto  max-w-lg block object-cover object-center" />
+    <div id="carouselExampleCaptions" class="carousel slide relative" data-bs-ride="carousel">
+        <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner relative w-full overflow-hidden h-80v">
+            @foreach ($random as $key => $rand)
+                <div class="carousel-item {{ $key == 0 ? 'active' : '' }} relative float-left w-full">
+                    <img src="{{ asset('/images/movies/background/' . $rand->background_url) }}" class="block w-full"
+                        alt="..." />
+                    <div class="carousel-caption md:block absolute top-[35vh] left-[15vw] w-1/3">
+                        <p>{{ $rand->genres[0]->genre->name }} | {{ date('Y', strtotime($rand->release_date)) }}</p>
+                        <h1 class="text-5xl font-medium py-2">{{ $rand->title }}</h1>
+                        <p class="text-ellipsis overflow-hidden text-ellipsis--3">{{ $rand->description }}</p>
                     </div>
-                @endforeach
-            </x-home-carousel>
-
+                </div>
+            @endforeach
+        </div>
+        <button
+            class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
+            type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+            class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
+            type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <div class="px-8 py-5">
+        <div class="container w-full mx-auto min-h-[100px]:">
             <div class="flex justify-start items-center space-x-4">
                 <x-icomoon-fire class="w-5 text-white" />
                 <h1 class="text-white font-semibold text-2xl">
@@ -87,7 +120,8 @@
                         class="flex justify-center flex-col  container w-[250px] cursor-pointer hover:-translate-y-2 transition duration-300 ease-linear">
                         <div class="flex justify-center">
                             <a href="{{ route('movie', $movie) }}">
-                                <img src="{{ asset('/images/movies/image/' . $movie->img_url) }}" alt="{{ $movie->title }}"
+                                <img src="{{ asset('/images/movies/image/' . $movie->img_url) }}"
+                                    alt="{{ $movie->title }}"
                                     class="w-full rounded-md h-[400px] object-center object-cover" />
                             </a>
                         </div>
