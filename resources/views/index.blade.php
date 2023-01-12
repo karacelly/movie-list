@@ -30,7 +30,7 @@
                 <div class="carousel-item {{ $key == 0 ? 'active' : '' }} relative float-left w-full">
                     <img src="{{ asset('/images/movies/background/' . $rand->background_url) }}" class="block w-full"
                         alt="..." />
-                    <div class="carousel-caption md:block absolute top-[35vh] left-[15vw] w-1/3">
+                    <div class="carousel-caption md:block absolute top-[30vh] left-[15vw] w-1/3">
                         <p>{{ $rand->genres[0]->genre->name }} | {{ date('Y', strtotime($rand->release_date)) }}</p>
                         <h1 class="text-5xl font-medium py-2">{{ $rand->title }}</h1>
                         <p class="text-ellipsis overflow-hidden text-ellipsis--3">{{ $rand->description }}</p>
