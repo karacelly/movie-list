@@ -57,7 +57,16 @@ class MovieController extends Controller
             $idx++;
         }
 
-        return view('index', compact('movies', 'genres', 'famous','random', 'flags'));
+        $randsFlags = collect();
+        $idx = 0;
+        foreach($random as $movie) {
+            $flag = $movie->watchlist()->where('user_id', Auth::id())->get()->isEmpty();
+            error_log($flag);
+            $randsFlags->put($idx, $flag);
+            $idx++;
+        }
+
+        return view('index', compact('movies', 'genres', 'famous','random', 'flags', 'randsFlags'));
     }
 
     public function search(Request $request)

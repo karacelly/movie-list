@@ -87,6 +87,8 @@
                                                     Watching</option>
                                                 <option class="text-black" value="Finished">
                                                     Finished</option>
+                                                <option class="text-black" value="Remove">
+                                                    Remove</option>
                                             </select>
                                             <div class="flex justify-end items-center pt-5">
                                                 <div class="close">
