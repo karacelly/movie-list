@@ -2,14 +2,6 @@
 
 Movie List is a movie website made by a famous computer science student. In that website, people can find information about the Famous Movie’s list. This website enables the users to add the movie to their watchlist.
 
-## Table of Contents
-
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Preview](#contact)  
-  - [Credits](#credits)
-
-
 ## Installation
 
 Use the package manager [composer](https://getcomposer.org/) to install Laravel and its dependencies.
@@ -73,6 +65,10 @@ php artisan serve
 ```
 Visit [http://localhost:8000](http://localhost:8000) to view the application.
 
+## Credits
+Created by [karacelly](https://github.com/karacelly) and [Criezc](https://github.com/Criezc).
+Assets credited in folder !external docs.
+
 ## Preview
 ![Preview of Movie List.](https://i.ibb.co/WxB8Rrp/Picture1.png "Preview of Movie List.")
 ![Preview of Movie List.](https://i.ibb.co/2331w5C/Picture2.png "Preview of Movie List.")
@@ -91,7 +87,3 @@ Visit [http://localhost:8000](http://localhost:8000) to view the application.
 ![Preview of Movie List.](https://i.ibb.co/yVW0QWf/Picture19.png "Preview of Movie List.")
 ![Preview of Movie List.](https://i.ibb.co/6PF13t6/Picture20.png "Preview of Movie List.")
 
-
-## Credits
-Created by [karacelly](https://github.com/karacelly) and [Criezc](https://github.com/Criezc).
-Assets credited in folder !external docs.
