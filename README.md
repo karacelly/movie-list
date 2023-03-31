@@ -1,45 +1,6 @@
 # Movie List
 
-Movie List is a movie website made by a famous computer science student. In that website, people can find information about the Famous Movie’s list. This website enables the users to add the movie to their watchlist.
-
-## Installation
-
-Use the package manager [composer](https://getcomposer.org/) to install Laravel and its dependencies.
-
-```bash
-composer install
-```
-
-Then, create a copy of the .env.example file and rename it to .env. Update the values in the .env file with your database credentials.
-
-Finally, run the following command to generate an application key:
-```bash
-php artisan key:generate
-```
-
-## Usage
-
-Start the development server:
-
-```bash
-php artisan serve
-```
-Visit [http://localhost:8000](http://localhost:8000) to view the application.
-
-## Credits
-Created by [karacelly](https://github.com/karacelly) and [Criezc](https://github.com/Criezc).
-
-## Preview
-# Movie List
-
 Movie List is a famous movie website made by a famous computer science student. In that website, people can find information about the Famous Movie’s list. This website enables the users to add the movie to their watchlist.
-
-## Table of Contents
-
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Credits](#credits)
-  - [Preview](#contact)
 
 ## Installation
 
